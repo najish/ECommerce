@@ -43,12 +43,7 @@ const Login = ({ closeModal }) => {
 
 
       if (token) {
-        // Save token to localStorage
-        localStorage.setItem('authToken', token)
-        // Save user info (e.g., email) — you can decode the token if needed
-        localStorage.setItem('user', )
 
-        // Set user in parent state (if you want)
         const user = {
           id: data.id,
           email: data.email,
