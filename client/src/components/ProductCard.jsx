@@ -1,35 +1,42 @@
 import React from 'react';
 import '../styles/components/ProductCard.css';
 import productImage from '../assets/product.jpeg';
-
+import { useCart } from '../contexts/CartContext';
+import { Link } from 'react-router-dom';
 const images = {
   'product.jpeg': productImage
 };
 const ProductCard = ({ product }) => {
+  const { addToCart } = useCart();
+  
   return (
     <div className="product-card">
-      <img
-        src={images['product.jpeg']}
-        alt={product.title}
-        className="product-image"
-      />
+      <li>  
+        <Link to='/cart'>
+        <img
+          src={images['product.jpeg']}
+          alt={product.title}
+          className="product-image"
+        />
+        </Link>
+        </li>
       <div className="product-details">
-        <h2 className="product-title">{product.title}</h2>
+        <h2 className="product-title">{product.name}</h2>
         <p className="product-description">{product.description}</p>
         <p className="product-price">${product.price.toFixed(2)}</p>
         <p
           className={`product-stock ${
-            product.inStock ? 'in-stock' : 'out-of-stock'
+            product.stock > 0 ? 'in-stock' : 'out-of-stock'
           }`}
         >
-          {product.inStock ? 'In Stock' : 'Out of Stock'}
+          {product.stock > 0 ? 'In Stock' : 'Out of Stock'}
         </p>
 
         <div className="product-actions">
-          <button className="btn add-to-cart" disabled={!product.inStock}>
+          <button className="btn add-to-cart" disabled={!product.stock > 0} onClick={() => addToCart(product)}>
             Add to Cart
           </button>
-          <button className="btn buy-now" disabled={!product.inStock}>
+          <button className="btn buy-now" disabled={!product.stock > 0}>
             Buy Now
           </button>
         </div>

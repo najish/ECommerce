@@ -8,6 +8,7 @@ import Orders from './pages/Orders';
 import Account from './pages/Account';
 import Footer from './components/Footer';
 import About from './pages/About';
+import Checkout from './pages/Checkout';
 import Container from './components/Container';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -20,13 +21,14 @@ function App() {
         <Header /> {/* stays on all pages */}
         <Container>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Products />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/account" element={<Account />} />
             <Route path="/about" element={<About />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="*" element={<h1>404 Not Found</h1>} />
           </Routes>
         </Container>
