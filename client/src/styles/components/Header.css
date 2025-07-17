@@ -1,0 +1,100 @@
+/* === Header === */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e5e7eb; /* light gray border */
+  background-color: #ffffff;
+}
+
+.header ul {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header li {
+  cursor: pointer;
+}
+
+.header li a {
+  text-decoration: none;
+  color: #111827; /* dark gray */
+  transition: color 0.2s ease;
+}
+
+.header li a:hover {
+  color: #1e40af; /* primary blue */
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+/* === Modal === */
+
+.center-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* dim background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* on top */
+}
+
+.center-box {
+  position: relative;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.parent-close-btn {
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #ef4444; /* a nice red on hover */
+}
+
+/* === Buttons === */
+
+.auth-btn,
+.logout-btn {
+  background: #1e40af; /* your primary blue */
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.auth-btn:hover,
+.logout-btn:hover {
+  background: #1d4ed8; /* slightly lighter blue */
+}
