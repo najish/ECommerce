@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "orderId": 1,
+    "productId": 3,
+    "quantity": 2,
+    "price": 799.00,
+    "createdAt": "2025-07-02T09:30:00.000Z",
+    "updatedAt": "2025-07-02T09:30:00.000Z"
+  },
+  {
+    "id": 2,
+    "orderId": 1,
+    "productId": 6,
+    "quantity": 1,
+    "price": 299.00,
+    "createdAt": "2025-07-02T09:30:00.000Z",
+    "updatedAt": "2025-07-02T09:30:00.000Z"
+  },
+  {
+    "id": 3,
+    "orderId": 2,
+    "productId": 10,
+    "quantity": 1,
+    "price": 899.00,
+    "createdAt": "2025-07-02T10:45:00.000Z",
+    "updatedAt": "2025-07-02T10:45:00.000Z"
+  },
+  {
+    "id": 4,
+    "orderId": 3,
+    "productId": 1,
+    "quantity": 1,
+    "price": 13499.00,
+    "createdAt": "2025-07-03T11:00:00.000Z",
+    "updatedAt": "2025-07-03T11:00:00.000Z"
+  },
+  {
+    "id": 5,
+    "orderId": 4,
+    "productId": 13,
+    "quantity": 1,
+    "price": 225.00,
+    "createdAt": "2025-07-04T13:20:00.000Z",
+    "updatedAt": "2025-07-04T13:20:00.000Z"
+  },
+  {
+    "id": 6,
+    "orderId": 4,
+    "productId": 14,
+    "quantity": 1,
+    "price": 174.00,
+    "createdAt": "2025-07-04T13:20:00.000Z",
+    "updatedAt": "2025-07-04T13:20:00.000Z"
+  },
+  {
+    "id": 7,
+    "orderId": 5,
+    "productId": 10,
+    "quantity": 1,
+    "price": 899.00,
+    "createdAt": "2025-07-05T08:00:00.000Z",
+    "updatedAt": "2025-07-05T08:00:00.000Z"
+  },
+  {
+    "id": 8,
+    "orderId": 6,
+    "productId": 2,
+    "quantity": 1,
+    "price": 1199.00,
+    "createdAt": "2025-07-06T15:15:00.000Z",
+    "updatedAt": "2025-07-06T15:15:00.000Z"
+  },
+  {
+    "id": 9,
+    "orderId": 6,
+    "productId": 6,
+    "quantity": 1,
+    "price": 150.00,
+    "createdAt": "2025-07-06T15:15:00.000Z",
+    "updatedAt": "2025-07-06T15:15:00.000Z"
+  },
+  {
+    "id": 10,
+    "orderId": 7,
+    "productId": 7,
+    "quantity": 1,
+    "price": 449.00,
+    "createdAt": "2025-07-07T09:30:00.000Z",
+    "updatedAt": "2025-07-07T09:30:00.000Z"
+  },
+  {
+    "id": 11,
+    "orderId": 8,
+    "productId": 5,
+    "quantity": 1,
+    "price": 2399.00,
+    "createdAt": "2025-07-08T10:00:00.000Z",
+    "updatedAt": "2025-07-08T10:00:00.000Z"
+  },
+  {
+    "id": 12,
+    "orderId": 9,
+    "productId": 3,
+    "quantity": 1,
+    "price": 799.00,
+    "createdAt": "2025-07-08T12:45:00.000Z",
+    "updatedAt": "2025-07-08T12:45:00.000Z"
+  },
+  {
+    "id": 13,
+    "orderId": 10,
+    "productId": 4,
+    "quantity": 1,
+    "price": 1599.00,
+    "createdAt": "2025-07-09T11:15:00.000Z",
+    "updatedAt": "2025-07-09T11:15:00.000Z"
+  }
+]

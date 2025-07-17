@@ -1,0 +1,72 @@
+[
+  {
+    "productId": 1,
+    "title": "Wireless Mouse",
+    "price": 19.99,
+    "description": "Ergonomic wireless mouse with 2.4GHz connectivity.",
+    "stock": 150
+  },
+  {
+    "productId": 2,
+    "title": "Mechanical Keyboard",
+    "price": 79.99,
+    "description": "RGB backlit mechanical keyboard with blue switches.",
+    "stock": 75
+  },
+  {
+    "productId": 3,
+    "title": "Gaming Headset",
+    "price": 49.99,
+    "description": "Surround sound gaming headset with noise-cancelling mic.",
+    "stock": 200
+  },
+  {
+    "productId": 4,
+    "title": "USB-C Hub",
+    "price": 29.99,
+    "description": "5-in-1 USB-C hub with HDMI, USB 3.0, and SD card reader.",
+    "stock": 120
+  },
+  {
+    "productId": 5,
+    "title": "Portable SSD",
+    "price": 99.99,
+    "description": "1TB portable SSD with high-speed data transfer.",
+    "stock": 60
+  },
+  {
+    "productId": 6,
+    "title": "4K Monitor",
+    "price": 299.99,
+    "description": "27-inch 4K UHD monitor with HDR support.",
+    "stock": 35
+  },
+  {
+    "productId": 7,
+    "title": "Smartphone Stand",
+    "price": 14.99,
+    "description": "Adjustable smartphone stand for desk.",
+    "stock": 500
+  },
+  {
+    "productId": 8,
+    "title": "Webcam",
+    "price": 39.99,
+    "description": "1080p HD webcam with built-in microphone.",
+    "stock": 80
+  },
+  {
+    "productId": 9,
+    "title": "Bluetooth Speaker",
+    "price": 59.99,
+    "description": "Portable Bluetooth speaker with deep bass.",
+    "stock": 90
+  },
+  {
+    "productId": 10,
+    "title": "Wireless Charger",
+    "price": 24.99,
+    "description": "Fast wireless charging pad for smartphones.",
+    "stock": 250
+  }
+]
