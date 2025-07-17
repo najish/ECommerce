@@ -1,0 +1,12 @@
+
+Primary Color: Royal Blue - #1E40AF
+Secondary Color: Sky Blue - #3B82F6
+Accent Color: Emerald Green - #10B981
+Error Color: Red - #EF4444
+
+Dark Text: Dark Gray - #111827
+Light Text: Cool Gray - #6B7280
+
+Background: White - #FFFFFF
+Card Background: Light Gray - #F9FAFB
+Borders/Dividers: Light Gray 2 - #E5E7EB

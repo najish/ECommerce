@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Wireless Headphones",
+    "description": "High-quality wireless headphones with noise cancellation.",
+    "price": 99.99,
+    "inStock": true,
+    "image": "product.jpeg"
+  },
+  {
+    "id": 2,
+    "title": "Smart Watch",
+    "description": "Stylish smart watch with fitness tracking features.",
+    "price": 149.99,
+    "inStock": true,
+    "image": "https://via.placeholder.com/150?text=Smart+Watch"
+  },
+  {
+    "id": 3,
+    "title": "Gaming Keyboard",
+    "description": "Mechanical keyboard with RGB backlight for gamers.",
+    "price": 79.99,
+    "inStock": true,
+    "image": "https://via.placeholder.com/150?text=Keyboard"
+  },
+  {
+    "id": 4,
+    "title": "Bluetooth Speaker",
+    "description": "Portable Bluetooth speaker with deep bass.",
+    "price": 45.50,
+    "inStock": false,
+    "image": "https://via.placeholder.com/150?text=Speaker"
+  },
+  {
+    "id": 5,
+    "title": "4K Monitor",
+    "description": "27-inch 4K UHD monitor for crisp visuals.",
+    "price": 299.00,
+    "inStock": true,
+    "image": "https://via.placeholder.com/150?text=4K+Monitor"
+  },
+  {
+    "id": 6,
+    "title": "USB-C Hub",
+    "description": "Multiport USB-C hub for laptops and tablets.",
+    "price": 29.99,
+    "inStock": true,
+    "image": "https://via.placeholder.com/150?text=USB-C+Hub"
+  },
+  {
+    "id": 7,
+    "title": "External SSD",
+    "description": "Fast external solid-state drive with 1TB capacity.",
+    "price": 119.95,
+    "inStock": false,
+    "image": "https://via.placeholder.com/150?text=External+SSD"
+  },
+  {
+    "id": 8,
+    "title": "Wireless Mouse",
+    "description": "Ergonomic wireless mouse with adjustable DPI.",
+    "price": 25.99,
+    "inStock": true,
+    "image": "https://via.placeholder.com/150?text=Mouse"
+  },
+  {
+    "id": 9,
+    "title": "Webcam",
+    "description": "1080p HD webcam with built-in microphone.",
+    "price": 49.95,
+    "inStock": true,
+    "image": "https://via.placeholder.com/150?text=Webcam"
+  },
+  {
+    "id": 10,
+    "title": "Portable Charger",
+    "description": "10,000mAh power bank with fast charging support.",
+    "price": 39.50,
+    "inStock": true,
+    "image": "https://via.placeholder.com/150?text=Charger"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "id": 6,
+    "name": "Sneha Iyer",
+    "email": "sneha.iyer@example.in",
+    "password": "$2a$10$abc123snehafakehash",
+    "role": "user",
+    "createdAt": "2025-07-06T08:15:00.000Z",
+    "updatedAt": "2025-07-06T08:15:00.000Z"
+  },
+  {
+    "id": 7,
+    "name": "Ravi Mehta",
+    "email": "ravi.mehta@example.in",
+    "password": "$2a$10$abc123ravifakehash",
+    "role": "user",
+    "createdAt": "2025-07-06T09:45:00.000Z",
+    "updatedAt": "2025-07-06T09:45:00.000Z"
+  },
+  {
+    "id": 8,
+    "name": "Neha Kapoor",
+    "email": "neha.kapoor@example.in",
+    "password": "$2a$10$abc123nehafakehash",
+    "role": "admin",
+    "createdAt": "2025-07-07T11:20:00.000Z",
+    "updatedAt": "2025-07-07T11:20:00.000Z"
+  },
+  {
+    "id": 9,
+    "name": "Suresh Raina",
+    "email": "suresh.raina@example.in",
+    "password": "$2a$10$abc123sureshfakehash",
+    "role": "user",
+    "createdAt": "2025-07-07T13:10:00.000Z",
+    "updatedAt": "2025-07-07T13:10:00.000Z"
+  },
+  {
+    "id": 10,
+    "name": "Deepika Nair",
+    "email": "deepika.nair@example.in",
+    "password": "$2a$10$abc123deepikafakehash",
+    "role": "user",
+    "createdAt": "2025-07-08T10:55:00.000Z",
+    "updatedAt": "2025-07-08T10:55:00.000Z"
+  },
+  {
+    "id": 11,
+    "name": "Arjun Desai",
+    "email": "arjun.desai@example.in",
+    "password": "$2a$10$abc123arjunfakehash",
+    "role": "user",
+    "createdAt": "2025-07-08T12:30:00.000Z",
+    "updatedAt": "2025-07-08T12:30:00.000Z"
+  },
+  {
+    "id": 12,
+    "name": "Kavita Joshi",
+    "email": "kavita.joshi@example.in",
+    "password": "$2a$10$abc123kavitafakehash",
+    "role": "user",
+    "createdAt": "2025-07-09T09:00:00.000Z",
+    "updatedAt": "2025-07-09T09:00:00.000Z"
+  },
+  {
+    "id": 13,
+    "name": "Nikhil Singh",
+    "email": "nikhil.singh@example.in",
+    "password": "$2a$10$abc123nikhilfakehash",
+    "role": "admin",
+    "createdAt": "2025-07-09T10:15:00.000Z",
+    "updatedAt": "2025-07-09T10:15:00.000Z"
+  },
+  {
+    "id": 14,
+    "name": "Ayesha Khan",
+    "email": "ayesha.khan@example.in",
+    "password": "$2a$10$abc123ayeshasfakehash",
+    "role": "user",
+    "createdAt": "2025-07-10T11:40:00.000Z",
+    "updatedAt": "2025-07-10T11:40:00.000Z"
+  },
+  {
+    "id": 15,
+    "name": "Manoj Bhatia",
+    "email": "manoj.bhatia@example.in",
+    "password": "$2a$10$abc123manojfakehash",
+    "role": "user",
+    "createdAt": "2025-07-10T13:25:00.000Z",
+    "updatedAt": "2025-07-10T13:25:00.000Z"
+  }
+]

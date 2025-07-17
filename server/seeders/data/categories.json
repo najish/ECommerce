@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Electronics",
+    "createdAt": "2025-07-01T08:00:00.000Z",
+    "updatedAt": "2025-07-01T08:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "name": "Mobiles & Accessories",
+    "createdAt": "2025-07-01T09:00:00.000Z",
+    "updatedAt": "2025-07-01T09:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "name": "Men's Fashion",
+    "createdAt": "2025-07-01T10:00:00.000Z",
+    "updatedAt": "2025-07-01T10:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "name": "Women's Fashion",
+    "createdAt": "2025-07-01T11:00:00.000Z",
+    "updatedAt": "2025-07-01T11:00:00.000Z"
+  },
+  {
+    "id": 5,
+    "name": "Home & Kitchen",
+    "createdAt": "2025-07-01T12:00:00.000Z",
+    "updatedAt": "2025-07-01T12:00:00.000Z"
+  },
+  {
+    "id": 6,
+    "name": "Beauty & Personal Care",
+    "createdAt": "2025-07-01T13:00:00.000Z",
+    "updatedAt": "2025-07-01T13:00:00.000Z"
+  },
+  {
+    "id": 7,
+    "name": "Grocery & Staples",
+    "createdAt": "2025-07-01T14:00:00.000Z",
+    "updatedAt": "2025-07-01T14:00:00.000Z"
+  },
+  {
+    "id": 8,
+    "name": "Sports & Fitness",
+    "createdAt": "2025-07-01T15:00:00.000Z",
+    "updatedAt": "2025-07-01T15:00:00.000Z"
+  },
+  {
+    "id": 9,
+    "name": "Toys & Games",
+    "createdAt": "2025-07-01T16:00:00.000Z",
+    "updatedAt": "2025-07-01T16:00:00.000Z"
+  },
+  {
+    "id": 10,
+    "name": "Books & Stationery",
+    "createdAt": "2025-07-01T17:00:00.000Z",
+    "updatedAt": "2025-07-01T17:00:00.000Z"
+  }
+]

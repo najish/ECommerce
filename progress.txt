@@ -1,0 +1,21 @@
+client
+==================================
+
+1. update 
+
+
+
+
+
+
+
+
+server
+=================================
+1. integrate jwt tokens with server
+2. login, signup, google
+3. add tables and relationship and association
+4. add test cases and code coverage
+5. validation for all the models and others things
+6. dotenv setup for the server
+
