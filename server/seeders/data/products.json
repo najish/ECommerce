@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "name": "Samsung Galaxy M14 5G",
+    "description": "6.6\" Display | 6000mAh Battery | 50MP Camera",
+    "price": 13499.00,
+    "stock": 120,
+    "categoryId": 2,
+    "createdAt": "2025-07-01T10:00:00.000Z",
+    "updatedAt": "2025-07-01T10:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "name": "boAt Airdopes 141",
+    "description": "Bluetooth Earbuds with 42H Playtime and ENx Tech",
+    "price": 1199.00,
+    "stock": 500,
+    "categoryId": 2,
+    "createdAt": "2025-07-01T11:00:00.000Z",
+    "updatedAt": "2025-07-01T11:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "name": "Allen Solly Men's Polo T-Shirt",
+    "description": "Cotton casual wear for men",
+    "price": 799.00,
+    "stock": 220,
+    "categoryId": 3,
+    "createdAt": "2025-07-01T12:00:00.000Z",
+    "updatedAt": "2025-07-01T12:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "name": "BIBA Women's Anarkali Kurta",
+    "description": "Floral printed ethnic wear for women",
+    "price": 1599.00,
+    "stock": 180,
+    "categoryId": 4,
+    "createdAt": "2025-07-01T13:00:00.000Z",
+    "updatedAt": "2025-07-01T13:00:00.000Z"
+  },
+  {
+    "id": 5,
+    "name": "Prestige Induction Cooktop",
+    "description": "2000-watt induction stove with feather-touch buttons",
+    "price": 2399.00,
+    "stock": 60,
+    "categoryId": 5,
+    "createdAt": "2025-07-01T14:00:00.000Z",
+    "updatedAt": "2025-07-01T14:00:00.000Z"
+  },
+  {
+    "id": 6,
+    "name": "NIVEA Body Lotion for Dry Skin",
+    "description": "With almond oil, deep nourishment formula",
+    "price": 299.00,
+    "stock": 300,
+    "categoryId": 6,
+    "createdAt": "2025-07-01T15:00:00.000Z",
+    "updatedAt": "2025-07-01T15:00:00.000Z"
+  },
+  {
+    "id": 7,
+    "name": "Aashirvaad Atta 10kg",
+    "description": "Whole wheat flour – chakki fresh",
+    "price": 449.00,
+    "stock": 150,
+    "categoryId": 7,
+    "createdAt": "2025-07-01T16:00:00.000Z",
+    "updatedAt": "2025-07-01T16:00:00.000Z"
+  },
+  {
+    "id": 8,
+    "name": "Tata Tea Premium 1kg",
+    "description": "Desh Ki Chai – strong & flavorful",
+    "price": 530.00,
+    "stock": 200,
+    "categoryId": 7,
+    "createdAt": "2025-07-01T17:00:00.000Z",
+    "updatedAt": "2025-07-01T17:00:00.000Z"
+  },
+  {
+    "id": 9,
+    "name": "Nivia Storm Football",
+    "description": "Rubberized water-resistant outer for all surfaces",
+    "price": 549.00,
+    "stock": 85,
+    "categoryId": 8,
+    "createdAt": "2025-07-01T18:00:00.000Z",
+    "updatedAt": "2025-07-01T18:00:00.000Z"
+  },
+  {
+    "id": 10,
+    "name": "Yonex GR 303 Badminton Racket",
+    "description": "Aluminium frame with full cover",
+    "price": 899.00,
+    "stock": 110,
+    "categoryId": 8,
+    "createdAt": "2025-07-01T19:00:00.000Z",
+    "updatedAt": "2025-07-01T19:00:00.000Z"
+  },
+  {
+    "id": 11,
+    "name": "Funskool Monopoly Deal Card Game",
+    "description": "Fast-paced version of the classic game",
+    "price": 299.00,
+    "stock": 190,
+    "categoryId": 9,
+    "createdAt": "2025-07-01T20:00:00.000Z",
+    "updatedAt": "2025-07-01T20:00:00.000Z"
+  },
+  {
+    "id": 12,
+    "name": "Hot Wheels Basic Cars (Pack of 5)",
+    "description": "Die-cast toy cars for ages 3+",
+    "price": 499.00,
+    "stock": 250,
+    "categoryId": 9,
+    "createdAt": "2025-07-01T21:00:00.000Z",
+    "updatedAt": "2025-07-01T21:00:00.000Z"
+  },
+  {
+    "id": 13,
+    "name": "Classmate Spiral Notebook (Pack of 3)",
+    "description": "300 pages, ruled, A4 size",
+    "price": 225.00,
+    "stock": 400,
+    "categoryId": 10,
+    "createdAt": "2025-07-01T22:00:00.000Z",
+    "updatedAt": "2025-07-01T22:00:00.000Z"
+  },
+  {
+    "id": 14,
+    "name": "Parker Vector Standard Fountain Pen",
+    "description": "Stainless steel fine nib with blue ink",
+    "price": 275.00,
+    "stock": 150,
+    "categoryId": 10,
+    "createdAt": "2025-07-01T23:00:00.000Z",
+    "updatedAt": "2025-07-01T23:00:00.000Z"
+  },
+  {
+    "id": 15,
+    "name": "Sony WH-CH520 Bluetooth Headphones",
+    "description": "On-Ear | 50H Battery Life | Voice Assistant",
+    "price": 4499.00,
+    "stock": 90,
+    "categoryId": 1,
+    "createdAt": "2025-07-02T00:00:00.000Z",
+    "updatedAt": "2025-07-02T00:00:00.000Z"
+  }
+]
