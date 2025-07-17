@@ -9,7 +9,13 @@ const sequelize = require('./utils/database')
 
 
 const authRoutes = require('./routes/authRoutes')
+const userRoutes = require('./routes/userRoutes')
 const productRoutes = require('./routes/productRoutes')
+const categoryRoutes = require('./routes/categoryRoutes')
+const orderRoutes = require('./routes/orderRoutes')
+const orderItemsRoutes = require('./routes/orderItemRoutes')
+const cartRoutes = require('./routes/CartRoutes')
+const cartItemsRoutes = require('./routes/cartItemRoutes')
 
 
 app.use(cors())
@@ -25,6 +31,13 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoutes)
 app.use('/api/products', productRoutes)
+app.use('/api/orders', orderRoutes)
+app.use('/api/orderItems', orderItemsRoutes)
+app.use('/api/categories', categoryRoutes)
+app.use('/api/cart', cartRoutes)
+app.use('/api/cartItems', cartItemsRoutes)
+app.use('/api/users', userRoutes)
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}✅`)
