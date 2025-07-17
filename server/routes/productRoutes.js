@@ -2,29 +2,18 @@ const router = require('express').Router();
 const {
   getProducts,
   getProductById,
-  addProduct,
-  editProduct,
+  createProduct,
+  updateProduct,
   deleteProduct
 } = require('../controllers/productController');
 
-// GET /
-router.get('/', (req, res) => {
-  res.send('Product route is working');
-});
+const validate = require('../middlewares/validateMiddleware');
+const { createProductSchema, updateProductSchema } = require('../validations/productValidation');
 
-// POST /add
-router.post('/add', addProduct);
-
-// GET /list
-router.get('/list', getProducts);
-
-// GET /:id
+router.get('/', getProducts);
+router.post('/', validate(createProductSchema), createProduct);
 router.get('/:id', getProductById);
-
-// PUT /:id
-router.put('/:id', editProduct);
-
-// DELETE /:id
+router.put('/:id', validate(updateProductSchema), updateProduct);
 router.delete('/:id', deleteProduct);
 
 module.exports = router;
