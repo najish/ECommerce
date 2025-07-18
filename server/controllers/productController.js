@@ -21,8 +21,15 @@ const getProductById = async (req, res) => {
 
 const createProduct = async (req, res) => {
   try {
-    const product = await Product.create(req.body);
-    res.status(201).json(product);
+    let imageUrl = req.file ? req.file.filename : null;
+    imageUrl = `uploads/${imageUrl}`
+    const data = {
+      ...req.body,
+      imageUrl
+    }
+    console.log(data)
+    await Product.create(data)
+    res.status(201).json({message: 'Product has been added ❤️'});
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
