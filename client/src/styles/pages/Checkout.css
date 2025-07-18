@@ -1,49 +1,63 @@
-/* src/styles/pages/Checkout.css */
-
 .checkout-container {
   max-width: 600px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
 }
 
 .checkout-container h2 {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #333;
 }
 
 .checkout-form {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 
 .checkout-form label {
   font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
 }
 
 .checkout-form textarea,
 .checkout-form select {
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
   font-size: 1rem;
-  border-radius: 4px;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  resize: vertical;
-  min-height: 80px;
+  outline: none;
+  transition: border 0.3s;
+  background-color: #fff;
+}
+
+.checkout-form textarea:focus,
+.checkout-form select:focus {
+  border-color: #1e90ff;
 }
 
 .checkout-form select {
-  height: 40px;
+  height: 45px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23666' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px 8px;
 }
 
 .checkout-form button {
   background-color: #1e90ff;
   color: white;
-  padding: 0.8rem 1rem;
+  padding: 0.9rem 1.2rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s;
@@ -53,10 +67,16 @@
   background-color: #006fd6;
 }
 
-.checkout-form p {
-  margin-top: 1rem;
+.success {
   color: green;
-  font-weight: bold;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.error {
+  color: red;
+  font-weight: 600;
+  margin-top: 1rem;
 }
 
 @media (max-width: 600px) {
@@ -64,4 +84,22 @@
     margin: 1rem;
     padding: 1rem;
   }
+
+  .checkout-form {
+    gap: 1rem;
+  }
+}
+
+
+.qr-code-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f5faff;
+  border: 1px solid #cce5ff;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.qr-code-section h2 {
+  margin-bottom: 1rem;
 }
