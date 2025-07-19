@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import '../styles/pages/ForgotPassword.css'
-import {useNavigate} from 'react-router-dom'
+import '../../styles/pages/user/ForgotPassword.css'
+import { useNavigate } from 'react-router-dom'
 const ForgetPassword = () => {
   const [email, setEmail] = useState('')
   const [otpValue, setOtpValue] = useState('')
@@ -18,7 +18,10 @@ const ForgetPassword = () => {
     setMessage('')
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/forgot-password', { email })
+      const response = await axios.post(
+        'http://localhost:5000/api/auth/forgot-password',
+        { email }
+      )
       localStorage.setItem('token', response.data.token)
       setMessage('Reset OTP sent to your email.')
       setShowOtp(true)
@@ -41,15 +44,18 @@ const ForgetPassword = () => {
         console.log('token is not available')
         setError('wrong email')
       } else {
-        const response = await axios.post('http://localhost:5000/api/auth/verify-otp', {
-          email,
-          otp: otpValue,
-          token
-        })
-        if(response.status === 200) {
+        const response = await axios.post(
+          'http://localhost:5000/api/auth/verify-otp',
+          {
+            email,
+            otp: otpValue,
+            token,
+          }
+        )
+        if (response.status === 200) {
           setMessage('OTP verified! You can now reset your password.')
           navigate('/change-password')
-        } 
+        }
       }
       // Optionally redirect to reset-password page
     } catch (err) {

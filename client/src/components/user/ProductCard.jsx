@@ -1,7 +1,7 @@
 import React from 'react'
-import '../styles/components/ProductCard.css'
-import productImage from '../assets/product.jpeg'
-import { useCart } from '../contexts/CartContext'
+import '../../styles/components/user/ProductCard.css'
+import productImage from '../../assets/product.jpeg'
+import { useCart } from '../../contexts/CartContext'
 import { Link } from 'react-router-dom'
 
 const ProductCard = ({ product }) => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/components/Spinner.css'
+import '../../styles/components/user/Spinner.css'
 
 export default function CenteredSpinner() {
   return (

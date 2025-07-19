@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import '../styles/components/Login.css' // ✅ Shared auth styles
-import { useUser } from '../contexts/UserContext'
+import '../../styles/components/user/Signup.css'
+import { useUser } from '../../contexts/UserContext'
 
 const Signup = ({ closeModal }) => {
   const [form, setForm] = useState({

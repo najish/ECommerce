@@ -1,8 +1,8 @@
-import '../styles/components/Login.css'
+import '../../styles/components/user/Login.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { useUser } from '../contexts/UserContext'
+import { useUser } from '../../contexts/UserContext'
 
 const Login = ({ closeModal }) => {
   const { setUser, setToken } = useUser()
@@ -59,7 +59,7 @@ const Login = ({ closeModal }) => {
       console.error('Login error:', err)
       setError(
         err.response?.data?.message ||
-        'Login failed. Please check your credentials.'
+          'Login failed. Please check your credentials.'
       )
     } finally {
       setLoading(false)
@@ -105,10 +105,7 @@ const Login = ({ closeModal }) => {
         </div>
 
         <div className="form-footer">
-          <span
-            className="forgot-password"
-            onClick={handleForget}
-          >
+          <span className="forgot-password" onClick={handleForget}>
             Forgot Password?
           </span>
         </div>

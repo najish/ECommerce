@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import ProductCard from '../components/ProductCard'
-import '../styles/pages/Products.css'
-import { useSearch } from '../contexts/SearchContext'
+import { ProductCard } from '../../components/user'
+import '../../styles/pages/user/Products.css'
+import { useSearch } from '../../contexts/SearchContext'
 import axios from 'axios'
 
 const Products = () => {
@@ -25,8 +25,8 @@ const Products = () => {
         if (searchProduct && searchProduct.trim() !== '') {
           const query = searchProduct.toLowerCase().trim()
           const words = query.split(' ')
-          const filtered = data.filter(product =>
-            words.some(word => product.name.toLowerCase().includes(word))
+          const filtered = data.filter((product) =>
+            words.some((word) => product.name.toLowerCase().includes(word))
           )
           setFilteredProducts(filtered)
         } else {
@@ -49,12 +49,16 @@ const Products = () => {
   // Pagination logic
   const indexOfLastProduct = currentPage * productsPerPage
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage
-  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct)
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  )
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage)
 
   const goToPage = (page) => setCurrentPage(page)
   const goToPrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1))
-  const goToNext = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+  const goToNext = () =>
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages))
 
   if (loading) return <p className="loading-text">Loading products...</p>
   if (error) return <p style={{ color: 'red' }}>{error}</p>
@@ -63,7 +67,7 @@ const Products = () => {
     <div className="products-container">
       <div className="products-grid">
         {currentProducts.length > 0 ? (
-          currentProducts.map(product => (
+          currentProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))
         ) : (
@@ -73,7 +77,9 @@ const Products = () => {
 
       {totalPages > 1 && (
         <div className="pagination-controls">
-          <button onClick={goToPrev} disabled={currentPage === 1}>Previous</button>
+          <button onClick={goToPrev} disabled={currentPage === 1}>
+            Previous
+          </button>
           {Array.from({ length: totalPages }, (_, i) => (
             <button
               key={i + 1}
@@ -83,7 +89,9 @@ const Products = () => {
               {i + 1}
             </button>
           ))}
-          <button onClick={goToNext} disabled={currentPage === totalPages}>Next</button>
+          <button onClick={goToNext} disabled={currentPage === totalPages}>
+            Next
+          </button>
         </div>
       )}
     </div>
