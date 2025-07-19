@@ -29,7 +29,6 @@ tmp/
 temp/
 
 # Uploaded files
-uploads/
 uploads/*
 
 # Cache
