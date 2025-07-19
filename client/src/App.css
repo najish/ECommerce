@@ -24,10 +24,9 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-
 .container {
-  max-width: 1200px;   /* maximum width */
-  margin: 0 auto;      /* center horizontally */
-  padding: 0 1rem;     /* side padding */
-  min-height: 70vh;    /* 70% of viewport height */
+  max-width: 1200px; /* maximum width */
+  margin: 0 auto; /* center horizontally */
+  padding: 0 1rem; /* side padding */
+  min-height: 70vh; /* 70% of viewport height */
 }

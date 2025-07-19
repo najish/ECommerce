@@ -1,47 +1,60 @@
-/* Dashboard Layout */
-.dashboard-layout {
-  display: flex;
-  min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f7f9fc;
-}
-
-/* Sidebar */
-.dashboard-sidebar {
+/* Container */
+.sidebar-container {
   width: 240px;
   background-color: #1e1e2f;
   color: #fff;
+  height: 100vh;
   padding: 2rem 1.5rem;
   position: fixed;
-  height: 100vh;
+  top: 0;
+  left: 0;
   overflow-y: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Title */
 .sidebar-title {
   font-size: 1.6rem;
   margin-bottom: 2rem;
   font-weight: bold;
 }
 
-.sidebar-nav .sidebar-menu {
+/* Navigation */
+.sidebar-nav {
+  margin-top: 1rem;
+}
+
+.sidebar-menu {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .sidebar-menu li {
-  margin: 1rem 0;
+  margin-bottom: 1rem;
 }
 
-.sidebar-menu li a {
+/* NavLink Styling */
+.sidebar-link {
+  display: block;
+  padding: 0.6rem 1rem;
   color: #c5c6cc;
   text-decoration: none;
   font-size: 1rem;
-  font-weight: 500;
-  display: block;
-  transition: color 0.3s;
+  border-radius: 6px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
-.sidebar-menu li a:hover {
+.sidebar-link:hover {
   color: #ffffff;
+  background-color: #34344e;
+}
+
+/* Active Link */
+.active-link {
+  background-color: #3f3f5e;
+  color: #ffffff;
+  font-weight: bold;
 }
