@@ -8,22 +8,19 @@ function Profile() {
   const [error, setError] = useState('')
 
   useEffect(() => {
-    const fetchProfile = async () => {
+    const data = localStorage.getItem('user')
+    if (data) {
       try {
-        const token = localStorage.getItem('token') // or use context
-        const res = await axios.get('/api/user/profile', {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        setUser(res.data)
+        const parsedUser = JSON.parse(data)
+        setUser(parsedUser)
       } catch (err) {
-        console.error(err)
-        setError('Failed to load profile.')
-      } finally {
-        setLoading(false)
+        console.error('Error parsing user data from localStorage:', err)
+        setError('Invalid user data found.')
       }
+    } else {
+      setError('User not found.')
     }
-
-    fetchProfile()
+    setLoading(false)
   }, [])
 
   if (loading) return <div className="profile-wrapper">Loading profile...</div>
@@ -32,7 +29,7 @@ function Profile() {
 
   return (
     <div className="profile-wrapper">
-      <h2>My Profile</h2>
+      <h2>Your Profile</h2>
       <div className="profile-card">
         <img
           src={user.profilePic || '/default-avatar.png'}

@@ -20,7 +20,7 @@ export default function Footer() {
 
         <div className="footer-section">
           <h5>Quick Links</h5>
-          <ul>
+          <ul className="footer-section-list">
             <li>
               <a href="/products">Products</a>
             </li>
