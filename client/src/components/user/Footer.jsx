@@ -1,6 +1,6 @@
 // Footer.jsx
 import React from 'react'
-import '../styles/components/Footer.css'
+import '../../styles/components/user/Footer.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {

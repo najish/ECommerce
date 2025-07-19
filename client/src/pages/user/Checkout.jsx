@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { useCart } from '../contexts/CartContext'
-import '../styles/pages/Checkout.css'
+import { useCart } from '../../contexts/CartContext'
+import '../../styles/pages/user/Checkout.css'
 import axios from 'axios'
-import { useUser } from '../contexts/UserContext'
-import UPIQRCode from '../components/UPIQRCode'
+import { useUser } from '../../contexts/UserContext'
 import { useNavigate } from 'react-router-dom'
 
 const Checkout = () => {

@@ -4,23 +4,45 @@ import { store } from './store/store'
 
 import UserLayout from './layouts/UserLayout'
 import AdminLayout from './layouts/AdminLayout'
+// imports related to users
+import {
+  Products,
+  ProductDetails,
+  Cart,
+  Orders,
+  Account,
+  About,
+  Checkout,
+  Profile,
+  ForgotPassword,
+  ChangePassword,
+} from './pages/user'
 
-import Products from './pages/Products'
-import ProductDetails from './pages/ProductDetails'
-import Cart from './pages/Cart'
-import Orders from './pages/Orders'
-import Account from './pages/Account'
-import About from './pages/About'
-import Checkout from './pages/Checkout'
+import {
+  AuthModal,
+  Button,
+  Container,
+  Footer,
+  Header,
+  Input,
+  Loader,
+  Login,
+  ProductCard,
+  ProfileDropDown,
+  Signup,
+  Spinner,
+  UPIQRCode,
+} from './components/user'
 
-import AdminLogin from './pages/admin/AdminLogin'
-import Dashboard from './pages/admin/Dashboard'
-import AdminSignup from './pages/admin/AdminSignup'
-import AdminProduct from './pages/admin/AdminProduct'
-import AddProduct from './pages/admin/AddProduct'
-import AdminNotFound from './pages/admin/AdminNotFound'
-import ForgotPassword from './pages/ForgotPassword'
-import ChangePassword from './pages/ChangePassword'
+// imports related to admin
+import {
+  AdminLogin,
+  Dashboard,
+  AdminSignup,
+  AdminProduct,
+  AdminNotFound,
+  AddProduct,
+} from './pages/admin'
 
 function App() {
   return (
@@ -37,8 +59,9 @@ function App() {
             <Route path="/account" element={<Account />} />
             <Route path="/about" element={<About />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path='/forgot-password' element={<ForgotPassword />} />
-            <Route path='/change-password' element={<ChangePassword />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/change-password" element={<ChangePassword />} />
+            <Route path="/profile" element={<Profile />} />
           </Route>
 
           {/* ADMIN ROUTES */}

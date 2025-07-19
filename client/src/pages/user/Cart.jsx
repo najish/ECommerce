@@ -1,9 +1,10 @@
 // src/pages/Cart.jsx
 import React from 'react'
-import { useCart } from '../contexts/CartContext'
-import '../styles/pages/Cart.css'
+import { useCart } from '../../contexts/CartContext'
+import '../../styles/pages/user/Cart.css'
+
 import { Link } from 'react-router-dom'
-import productImage from '../assets/product.jpeg' // fallback image
+import productImage from '../../assets/product.jpeg' // fallback image
 
 const Cart = () => {
   const { cartItems, updateQuantity, removeFromCart, clearCart } = useCart()

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { useCart } from '../contexts/CartContext'
-import '../styles/pages/ProductDetails.css'
-import productImage from '../assets/product.jpeg'
+import { useCart } from '../../contexts/CartContext'
+import '../../styles/pages/user/ProductDetails.css'
+import productImage from '../../assets/product.jpeg'
 
 const BASE_URL = import.meta.env.VITE_API_URL
 

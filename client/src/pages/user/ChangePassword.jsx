@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import '../styles/pages/ChangePassword.css' // CSS file for styling
+import '../../styles/pages/user/ChangePassword.css'
 import axios from 'axios'
 function ChangePassword() {
   const [password, setPassword] = useState('')

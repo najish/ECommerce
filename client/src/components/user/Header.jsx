@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom'
 import AuthModal from './AuthModal'
 import Login from './Login'
 import Signup from './Signup'
-import { useUser } from '../contexts/UserContext'
-import { useCart } from '../contexts/CartContext'
-import { useSearch } from '../contexts/SearchContext'
+import { useUser } from '../../contexts/UserContext'
+import { useCart } from '../../contexts/CartContext'
+import { useSearch } from '../../contexts/SearchContext'
 
-import cartIcon from '../assets/cart-icon.jpeg'
-import logoImage from '../assets/ecommerce.jpeg'
-import searchIcon from '../assets/search-icon.jpeg'
+import cartIcon from '../../assets/cart-icon.jpeg'
+import logoImage from '../../assets/ecommerce.jpeg'
+import searchIcon from '../../assets/search-icon.jpeg'
+import ProfileDropdown from './ProfileDropDown'
 
-import '../styles/components/Header.css'
+import '../../styles/components/user/Header.css'
 
 export default function Header() {
   const [authModal, setAuthModal] = useState({ open: false, type: '' })
@@ -70,6 +71,7 @@ export default function Header() {
 
         {user ? (
           <>
+            <ProfileDropdown user={logoImage} />
             <span className="greeting">
               {user.name.split(' ')[0] || 'User'}
             </span>
