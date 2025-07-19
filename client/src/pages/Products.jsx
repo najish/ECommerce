@@ -1,48 +1,93 @@
-import { useEffect, useState } from 'react';
-import ProductCard from '../components/ProductCard';
-import '../styles/pages/Products.css'; // Import the CSS file
+import { useEffect, useState } from 'react'
+import ProductCard from '../components/ProductCard'
+import '../styles/pages/Products.css'
+import { useSearch } from '../contexts/SearchContext'
+import axios from 'axios'
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-  
+  const [products, setProducts] = useState([])
+  const [filteredProducts, setFilteredProducts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
+  const { searchProduct } = useSearch()
+
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1)
+  const productsPerPage = 8
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/products');
-        if (!res.ok) {
-          throw new Error('Failed to fetch products');
+        const res = await axios.get('http://localhost:5000/api/products')
+        const data = res.data
+
+        // Filter logic
+        if (searchProduct && searchProduct.trim() !== '') {
+          const query = searchProduct.toLowerCase().trim()
+          const words = query.split(' ')
+          const filtered = data.filter(product =>
+            words.some(word => product.name.toLowerCase().includes(word))
+          )
+          setFilteredProducts(filtered)
+        } else {
+          setFilteredProducts(data)
         }
-        const data = await res.json();
-        setProducts(data);
+
+        setProducts(data)
+        setCurrentPage(1) // Reset to page 1 on data reload
       } catch (err) {
-        setError(err.message || 'Something went wrong');
+        console.error('Error fetching products:', err)
+        setError(err.message || 'Something went wrong')
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    };
+    }
 
-    fetchProducts();
-  }, []);
+    fetchProducts()
+  }, [searchProduct])
 
-  if (loading) return <p>Loading products...</p>;
-  if (error) return <p style={{ color: 'red' }}>{error}</p>;
+  // Pagination logic
+  const indexOfLastProduct = currentPage * productsPerPage
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct)
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage)
+
+  const goToPage = (page) => setCurrentPage(page)
+  const goToPrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1))
+  const goToNext = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+
+  if (loading) return <p className="loading-text">Loading products...</p>
+  if (error) return <p style={{ color: 'red' }}>{error}</p>
 
   return (
     <div className="products-container">
       <div className="products-grid">
-        {products.length > 0 ? (
-          products.map(product => (
+        {currentProducts.length > 0 ? (
+          currentProducts.map(product => (
             <ProductCard key={product.id} product={product} />
           ))
         ) : (
-          <p>No products available.</p>
+          <p>No products found.</p>
         )}
       </div>
-    </div>
-  );
-};
 
-export default Products;
+      {totalPages > 1 && (
+        <div className="pagination-controls">
+          <button onClick={goToPrev} disabled={currentPage === 1}>Previous</button>
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i + 1}
+              onClick={() => goToPage(i + 1)}
+              className={currentPage === i + 1 ? 'active' : ''}
+            >
+              {i + 1}
+            </button>
+          ))}
+          <button onClick={goToNext} disabled={currentPage === totalPages}>Next</button>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default Products

@@ -1,11 +1,11 @@
 // components/UPIQRCode.jsx
-import React from 'react';
-import QRCode from 'react-qr-code'; // ✅ ESM-compatible QR component
+import React from 'react'
+import QRCode from 'react-qr-code' // ✅ ESM-compatible QR component
 
 const UPIQRCode = ({ upiId, payeeName, amount }) => {
-  if (!upiId || !payeeName || !amount) return null;
+  if (!upiId || !payeeName || !amount) return null
 
-  const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR`;
+  const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR`
 
   return (
     <div style={{ textAlign: 'center', marginTop: '20px' }}>
@@ -17,7 +17,7 @@ const UPIQRCode = ({ upiId, payeeName, amount }) => {
         <strong>Amount:</strong> ₹{amount}
       </p>
     </div>
-  );
-};
+  )
+}
 
-export default UPIQRCode;
+export default UPIQRCode

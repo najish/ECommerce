@@ -2,10 +2,10 @@ import '../styles/components/Login.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import {useUser} from '../contexts/UserContext'
+import { useUser } from '../contexts/UserContext'
 
 const Login = ({ closeModal }) => {
-  const {setUser, setToken} = useUser()
+  const { setUser, setToken } = useUser()
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -41,21 +41,16 @@ const Login = ({ closeModal }) => {
 
       const { token, data } = response.data
 
-
       if (token) {
-
         const user = {
           id: data.id,
           email: data.email,
-          name: data.name
+          name: data.name,
         }
         setUser(user)
         setToken(token)
 
-        // Close modal
         closeModal()
-
-        // Redirect to home
         navigate('/')
       } else {
         setError('No token received.')
@@ -64,11 +59,16 @@ const Login = ({ closeModal }) => {
       console.error('Login error:', err)
       setError(
         err.response?.data?.message ||
-          'Login failed. Please check your credentials.'
+        'Login failed. Please check your credentials.'
       )
     } finally {
       setLoading(false)
     }
+  }
+
+  const handleForget = () => {
+    closeModal()
+    navigate('/forgot-password')
   }
 
   return (
@@ -102,6 +102,15 @@ const Login = ({ closeModal }) => {
             required
             autoComplete="current-password"
           />
+        </div>
+
+        <div className="form-footer">
+          <span
+            className="forgot-password"
+            onClick={handleForget}
+          >
+            Forgot Password?
+          </span>
         </div>
 
         <button type="submit" disabled={loading}>
