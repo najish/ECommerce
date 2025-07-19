@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 5000
@@ -16,7 +17,10 @@ const orderRoutes = require('./routes/orderRoutes')
 const orderItemsRoutes = require('./routes/orderItemRoutes')
 const cartRoutes = require('./routes/CartRoutes')
 const cartItemsRoutes = require('./routes/cartItemRoutes')
+const testRoutes = require('./routes/testRoutes')
+const placeOrderRoutes = require('./routes/placeOrderRoutes')
 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(cors())
 app.use(morgan('dev'))
@@ -37,6 +41,8 @@ app.use('/api/categories', categoryRoutes)
 app.use('/api/cart', cartRoutes)
 app.use('/api/cartItems', cartItemsRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/test', testRoutes)
+app.use('/api/placeOrder', placeOrderRoutes)
 
 
 app.listen(port, () => {
