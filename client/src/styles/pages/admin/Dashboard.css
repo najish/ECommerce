@@ -1,96 +1,61 @@
-/* Dashboard Layout */
-.dashboard-layout {
-  display: flex;
-  min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Main Dashboard Content */
+.dashboard-main {
+  margin-bottom: 50px; /* Height of AdminFooter */
+  flex: 1;
   background-color: #f7f9fc;
-}
-
-/* Sidebar */
-.dashboard-sidebar {
-  width: 240px;
-  background-color: #1e1e2f;
-  color: #fff;
-  padding: 2rem 1.5rem;
-  position: fixed;
-  height: 100vh;
+  min-height: calc(100vh - 110px); /* Total minus header/footer */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow-y: auto;
 }
 
-.sidebar-title {
-  font-size: 1.6rem;
-  margin-bottom: 2rem;
-  font-weight: bold;
-}
-
-.sidebar-nav .sidebar-menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar-menu li {
-  margin: 1rem 0;
-}
-
-.sidebar-menu li a {
-  color: #c5c6cc;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  display: block;
-  transition: color 0.3s;
-}
-
-.sidebar-menu li a:hover {
-  color: #ffffff;
-}
-
-/* Main Content */
-.dashboard-main {
-  margin-left: 240px;
-  padding: 2rem 3rem;
-  flex: 1;
-}
-
-/* Header */
+/* Header Section */
 .dashboard-header {
   margin-bottom: 2rem;
 }
 
-.dashboard-header h1 {
+.dashboard-header h3 {
   font-size: 2rem;
   color: #333;
   margin: 0;
 }
 
-/* Stats Cards */
+/* Stats Grid */
 .dashboard-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
 }
 
+/* Stat Card */
 .stat-card {
   background-color: #ffffff;
-  padding: 1.5rem 1.8rem;
   border-radius: 12px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 3px 6px rgba(212, 106, 106, 0.08);
+  transition: transform 0.2s;
   font-size: 1.2rem;
   font-weight: 600;
   color: #222;
+}
+
+/* Link inside Card */
+.stat-card a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: transform 0.2s;
+  padding: 1.5rem 1.8rem;
+  text-decoration: none; /* 🔥 Removes underline */
+  color: inherit;
+  width: 100%;
 }
 
+/* Hover effect */
 .stat-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12);
 }
 
-.stat-card span {
+/* Highlighted number */
+.stat-card span:last-child {
   font-weight: bold;
   color: #007bff;
 }

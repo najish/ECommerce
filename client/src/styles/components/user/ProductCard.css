@@ -9,6 +9,7 @@
   transition: box-shadow 0.3s ease;
   padding: 1rem;
   list-style-type: none;
+  justify-content: space-between;
 }
 
 .product-card:hover {
@@ -38,7 +39,14 @@
 .product-description {
   font-size: 0.95rem;
   color: #666;
-  min-height: 60px;
+  height: 60px; /* fixed height instead of min-height */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* limit to 3 lines */
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  line-height: 1.4;
 }
 
 .product-price {

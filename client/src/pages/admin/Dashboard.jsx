@@ -4,25 +4,30 @@ import '../../styles/pages/admin/Dashboard.css'
 
 function Dashboard() {
   return (
-    <div>
-      <main className="dashboard-main">
-        <header className="dashboard-header">
-          <h1>Welcome, Admin</h1>
-        </header>
+    <main className="dashboard-main">
+      <header className="dashboard-header">
+        <h3>Welcome, Admin</h3>
+      </header>
 
-        <section className="dashboard-stats">
-          <div className="stat-card">
-            📦 Products: <span>120</span>
-          </div>
-          <div className="stat-card">
+      <section className="dashboard-stats">
+        <div className="stat-card">
+          <Link to="/admin/products">
+            <span>📦 Products:</span>
+            <span>120</span>
+          </Link>
+        </div>
+        <div className="stat-card">
+          <Link to="/admin/orders">
             🛒 Orders: <span>78</span>
-          </div>
-          <div className="stat-card">
+          </Link>
+        </div>
+        <div className="stat-card">
+          <Link to="/admin/users">
             👥 Users: <span>45</span>
-          </div>
-        </section>
-      </main>
-    </div>
+          </Link>
+        </div>
+      </section>
+    </main>
   )
 }
 

@@ -18,22 +18,6 @@ import {
   ChangePassword,
 } from './pages/user'
 
-import {
-  AuthModal,
-  Button,
-  Container,
-  Footer,
-  Header,
-  Input,
-  Loader,
-  Login,
-  ProductCard,
-  ProfileDropDown,
-  Signup,
-  Spinner,
-  UPIQRCode,
-} from './components/user'
-
 // imports related to admin
 import {
   AdminLogin,
@@ -42,6 +26,10 @@ import {
   AdminProduct,
   AdminNotFound,
   AddProduct,
+  AdminCategory,
+  AddCategory,
+  AdminUser,
+  AdminOrders,
 } from './pages/admin'
 
 function App() {
@@ -66,13 +54,23 @@ function App() {
 
           {/* ADMIN ROUTES */}
           <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<Dashboard />} /> {/* 👈 this is the fix */}
+            <Route index element={<Dashboard />} /> 👈 this is the fix
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="login" element={<AdminLogin />} />
             <Route path="signup" element={<AdminSignup />} />
             <Route path="products">
               <Route index element={<AdminProduct />} />
               <Route path="add" element={<AddProduct />} />
+            </Route>
+            <Route path="categories">
+              <Route index element={<AdminCategory />} />
+              <Route path="add" element={<AddCategory />} />
+            </Route>
+            <Route path="users">
+              <Route index element={<AdminUser />} />
+            </Route>
+            <Route path="orders">
+              <Route index element={<AdminOrders />} />
             </Route>
             <Route path="*" element={<AdminNotFound />} />
             <Route />

@@ -62,3 +62,7 @@
 .social-icons a:hover {
   color: #1976d2;
 }
+
+.footer-section-list {
+  list-style-type: none;
+}
