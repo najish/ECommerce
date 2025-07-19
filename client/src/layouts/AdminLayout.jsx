@@ -1,15 +1,12 @@
-import { Outlet } from 'react-router-dom'
-import AdminHeader from '../pages/admin/AdminHeader'
-import AdminSidebar from '../pages/admin/AdminSidebar'
-import AdminFooter from '../pages/admin/AdminFooter'
 import '../styles/layouts/AdminLayout.css'
-
+import { Outlet } from 'react-router-dom'
+import { AdminHeader, AdminFooter, AdminSidebar } from '../pages/admin'
 const AdminLayout = () => {
   return (
     <div className="admin-layout">
       <AdminHeader />
       <div className="admin-body">
-        <AdminSidebar className="admin-sidebar" />
+        <AdminSidebar />
         <main className="admin-main">
           <Outlet />
         </main>
@@ -18,5 +15,4 @@ const AdminLayout = () => {
     </div>
   )
 }
-
 export default AdminLayout

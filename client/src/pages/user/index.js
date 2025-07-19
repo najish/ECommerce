@@ -1,0 +1,11 @@
+// src/pages/user/index.js
+export { default as Products } from './Products'
+export { default as ProductDetails } from './ProductDetails'
+export { default as Cart } from './Cart'
+export { default as Orders } from './Orders'
+export { default as Account } from './Account'
+export { default as About } from './About'
+export { default as Checkout } from './Checkout'
+export { default as Profile } from './Profile'
+export { default as ForgotPassword } from './ForgotPassword'
+export { default as ChangePassword } from './ChangePassword'

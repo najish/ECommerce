@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import '../../styles/pages/admin/AddProduct.css'
-import Spinner from '../../components/Spinner'
+import Spinner from '../../components/user/Spinner'
 import { useNavigate } from 'react-router-dom'
 
 const BASE_URL = import.meta.env.VITE_API_URL

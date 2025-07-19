@@ -1,7 +1,7 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Container from '../components/Container';
-import { Outlet } from 'react-router-dom';
+import Header from '../components/user/Header'
+import Footer from '../components/user/Footer'
+import Container from '../components/user/Container'
+import { Outlet } from 'react-router-dom'
 
 const UserLayout = () => {
   return (
@@ -12,7 +12,7 @@ const UserLayout = () => {
       </Container>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default UserLayout;
+export default UserLayout

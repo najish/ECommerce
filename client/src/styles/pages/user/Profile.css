@@ -1,0 +1,38 @@
+.profile-wrapper {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.profile-wrapper h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-card {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+.profile-info p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.profile-info strong {
+  color: #333;
+}

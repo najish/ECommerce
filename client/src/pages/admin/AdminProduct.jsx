@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import '../../styles/pages/admin/AdminProduct.css';
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+import '../../styles/pages/admin/AdminProduct.css'
 
 function AdminProduct() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    fetchProducts()
+  }, [])
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/products');
-      setProducts(res.data);
+      const res = await axios.get('http://localhost:5000/api/products')
+      setProducts(res.data)
     } catch (err) {
-      console.error('Error fetching products:', err);
+      console.error('Error fetching products:', err)
     }
-  };
+  }
 
   return (
     <div className="admin-product-container">
@@ -41,7 +41,9 @@ function AdminProduct() {
         </thead>
         <tbody>
           {products.length === 0 ? (
-            <tr><td colSpan="6">No products found.</td></tr>
+            <tr>
+              <td colSpan="6">No products found.</td>
+            </tr>
           ) : (
             products.map((product, index) => (
               <tr key={product.id}>
@@ -61,7 +63,7 @@ function AdminProduct() {
         </tbody>
       </table>
     </div>
-  );
+  )
 }
 
-export default AdminProduct;
+export default AdminProduct

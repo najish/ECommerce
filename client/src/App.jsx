@@ -4,21 +4,33 @@ import { store } from './store/store'
 
 import UserLayout from './layouts/UserLayout'
 import AdminLayout from './layouts/AdminLayout'
+// imports related to users
+import {
+  Products,
+  ProductDetails,
+  Cart,
+  Orders,
+  Account,
+  About,
+  Checkout,
+  Profile,
+  ForgotPassword,
+  ChangePassword,
+} from './pages/user'
 
-import Products from './pages/Products'
-import ProductDetails from './pages/ProductDetails'
-import Cart from './pages/Cart'
-import Orders from './pages/Orders'
-import Account from './pages/Account'
-import About from './pages/About'
-import Checkout from './pages/Checkout'
-
-import AdminLogin from './pages/admin/AdminLogin'
-import Dashboard from './pages/admin/Dashboard'
-import AdminSignup from './pages/admin/AdminSignup'
-import AdminProduct from './pages/admin/AdminProduct'
-import AddProduct from './pages/admin/AddProduct'
-import AdminNotFound from './pages/admin/AdminNotFound'
+// imports related to admin
+import {
+  AdminLogin,
+  Dashboard,
+  AdminSignup,
+  AdminProduct,
+  AdminNotFound,
+  AddProduct,
+  AdminCategory,
+  AddCategory,
+  AdminUser,
+  AdminOrders,
+} from './pages/admin'
 
 function App() {
   return (
@@ -35,17 +47,30 @@ function App() {
             <Route path="/account" element={<Account />} />
             <Route path="/about" element={<About />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/change-password" element={<ChangePassword />} />
+            <Route path="/profile" element={<Profile />} />
           </Route>
 
           {/* ADMIN ROUTES */}
           <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<Dashboard />} /> {/* 👈 this is the fix */}
+            <Route index element={<Dashboard />} /> 👈 this is the fix
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="login" element={<AdminLogin />} />
             <Route path="signup" element={<AdminSignup />} />
             <Route path="products">
               <Route index element={<AdminProduct />} />
               <Route path="add" element={<AddProduct />} />
+            </Route>
+            <Route path="categories">
+              <Route index element={<AdminCategory />} />
+              <Route path="add" element={<AddCategory />} />
+            </Route>
+            <Route path="users">
+              <Route index element={<AdminUser />} />
+            </Route>
+            <Route path="orders">
+              <Route index element={<AdminOrders />} />
             </Route>
             <Route path="*" element={<AdminNotFound />} />
             <Route />

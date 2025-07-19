@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
       // e.g., User.hasMany(models.Order)
       User.hasMany(models.Order, { foreignKey: 'userId' });
       User.hasOne(models.Cart, { foreignKey: 'userId' });
+      User.hasMany(models.Token, {
+        foreignKey: 'userId',
+        onDelete: 'CASCADE',
+      });
     }
   }
 
