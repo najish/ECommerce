@@ -1,8 +1,8 @@
 // UserContext.js
-import { createContext, useContext } from 'react';
+import { createContext, useContext } from 'react'
 
-const CartContext = createContext();
+const CartContext = createContext()
 
-export const useCart = () => useContext(CartContext);
+export const useCart = () => useContext(CartContext)
 
-export default CartContext;
+export default CartContext

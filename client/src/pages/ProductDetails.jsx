@@ -36,7 +36,7 @@ const ProductDetails = () => {
   }
 
   const imageUrl = product.imageUrl
-    ? `${BASE_URL}/uploads/${product.imageUrl}`
+    ? `${BASE_URL}/${product.imageUrl}`
     : productImage
 
   return (

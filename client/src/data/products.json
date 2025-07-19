@@ -27,7 +27,7 @@
     "id": 4,
     "title": "Bluetooth Speaker",
     "description": "Portable Bluetooth speaker with deep bass.",
-    "price": 45.50,
+    "price": 45.5,
     "inStock": false,
     "image": "https://via.placeholder.com/150?text=Speaker"
   },
@@ -35,7 +35,7 @@
     "id": 5,
     "title": "4K Monitor",
     "description": "27-inch 4K UHD monitor for crisp visuals.",
-    "price": 299.00,
+    "price": 299.0,
     "inStock": true,
     "image": "https://via.placeholder.com/150?text=4K+Monitor"
   },
@@ -75,7 +75,7 @@
     "id": 10,
     "title": "Portable Charger",
     "description": "10,000mAh power bank with fast charging support.",
-    "price": 39.50,
+    "price": 39.5,
     "inStock": true,
     "image": "https://via.placeholder.com/150?text=Charger"
   }

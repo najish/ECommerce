@@ -1,35 +1,35 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import '../../styles/pages/admin/AdminLogin.css';
+import React, { useState } from 'react'
+import axios from 'axios'
+import '../../styles/pages/admin/AdminLogin.css'
 
 const AdminLogin = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
+    e.preventDefault()
+    setError('')
 
     try {
       const res = await axios.post('http://localhost:5000/api/auth/login', {
         email,
         password,
-        role: 'admin' // Send the role explicitly
-      });
+        role: 'admin', // Send the role explicitly
+      })
 
-      const { token, user } = res.data;
+      const { token, user } = res.data
 
       // Save to localStorage (or context)
-      localStorage.setItem('adminToken', token);
-      localStorage.setItem('adminUser', JSON.stringify(user));
+      localStorage.setItem('adminToken', token)
+      localStorage.setItem('adminUser', JSON.stringify(user))
 
       // Redirect to admin dashboard
-      window.location.href = '/admin/dashboard';
+      window.location.href = '/admin/dashboard'
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed');
+      setError(err.response?.data?.message || 'Login failed')
     }
-  };
+  }
 
   return (
     <div className="admin-login-container">
@@ -57,7 +57,7 @@ const AdminLogin = () => {
         <button type="submit">Login</button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default AdminLogin;
+export default AdminLogin

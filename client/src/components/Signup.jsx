@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import '../styles/components/Login.css' // ✅ Shared auth styles
+import { useUser } from '../contexts/UserContext'
 
-const Signup = ({ setUser, closeModal }) => {
+const Signup = ({ closeModal }) => {
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -13,8 +14,9 @@ const Signup = ({ setUser, closeModal }) => {
 
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
+  const { setUser, setToken } = useUser()
 
-  const navigate = useNavigate() // ✅ For redirect
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -44,17 +46,14 @@ const Signup = ({ setUser, closeModal }) => {
           name: form.name,
           email: form.email,
           password: form.password,
+          confirmPassword: form.confirmPassword,
         }
       )
 
       console.log('Signup response:', response.data)
 
       // Example: Assume API returns { user: { name, email } }
-      const user = response.data.user || form.name || form.email
-
-      localStorage.setItem('user', user.name || user.email)
-      setUser(user.name || user.email)
-
+      setUser(response.data.user)
       closeModal()
 
       navigate('/') // ✅ Redirect to home page

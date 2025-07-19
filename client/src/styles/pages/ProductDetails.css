@@ -48,3 +48,10 @@
   text-align: center;
   font-size: 1.2rem;
 }
+
+.product-description {
+  max-height: 200px; /* or whatever height fits your layout */
+  overflow-y: auto;
+  padding-right: 0.5rem; /* to avoid scroll bar overlapping text */
+  line-height: 1.6;
+}

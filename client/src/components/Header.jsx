@@ -5,6 +5,7 @@ import Login from './Login'
 import Signup from './Signup'
 import { useUser } from '../contexts/UserContext'
 import { useCart } from '../contexts/CartContext'
+import { useSearch } from '../contexts/SearchContext'
 
 import cartIcon from '../assets/cart-icon.jpeg'
 import logoImage from '../assets/ecommerce.jpeg'
@@ -17,6 +18,7 @@ export default function Header() {
   const { user, setUser } = useUser()
   const { totalQuantity } = useCart()
   const [searchTerm, setSearchTerm] = useState('')
+  const { setSearchProduct } = useSearch()
 
   const openModal = (type) => setAuthModal({ open: true, type })
   const closeModal = () => setAuthModal({ open: false, type: '' })
@@ -29,8 +31,7 @@ export default function Header() {
 
   const handleSearch = (e) => {
     e.preventDefault()
-    alert(`Searching for: ${searchTerm}`)
-    setSearchTerm('')
+    setSearchProduct(searchTerm)
   }
 
   return (
@@ -97,7 +98,7 @@ export default function Header() {
             {authModal.type === 'login' ? (
               <Login setUser={setUser} closeModal={closeModal} />
             ) : (
-              <Signup setUser={setUser} closeModal={closeModal} />
+              <Signup closeModal={closeModal} />
             )}
           </div>
         </div>

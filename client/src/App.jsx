@@ -19,6 +19,8 @@ import AdminSignup from './pages/admin/AdminSignup'
 import AdminProduct from './pages/admin/AdminProduct'
 import AddProduct from './pages/admin/AddProduct'
 import AdminNotFound from './pages/admin/AdminNotFound'
+import ForgotPassword from './pages/ForgotPassword'
+import ChangePassword from './pages/ChangePassword'
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
             <Route path="/account" element={<Account />} />
             <Route path="/about" element={<About />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path='/forgot-password' element={<ForgotPassword />} />
+            <Route path='/change-password' element={<ChangePassword />} />
           </Route>
 
           {/* ADMIN ROUTES */}

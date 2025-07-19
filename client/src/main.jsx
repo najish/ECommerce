@@ -4,12 +4,11 @@ import './index.css'
 import App from './App.jsx'
 import UserProvider from './contexts/UserProvider'
 import CartProvider from './contexts/CartProvider'
+import AppProvider from './contexts/AppProvider.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <UserProvider>
-      <CartProvider>
+    <AppProvider>
       <App />
-      </CartProvider>
-    </UserProvider>
+    </AppProvider>
   </StrictMode>
 )

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react'
+import axios from 'axios'
 import '../../styles/pages/admin/AdminSignup.css'
 
 const AdminSignup = () => {
@@ -8,25 +8,25 @@ const AdminSignup = () => {
     email: '',
     password: '',
     confirmPassword: '',
-  });
+  })
 
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState('')
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const { name, email, password, confirmPassword } = formData;
+    e.preventDefault()
+    const { name, email, password, confirmPassword } = formData
 
     if (!name || !email || !password || !confirmPassword) {
-      return setMessage('Please fill in all fields.');
+      return setMessage('Please fill in all fields.')
     }
 
     if (password !== confirmPassword) {
-      return setMessage('Passwords do not match.');
+      return setMessage('Passwords do not match.')
     }
 
     try {
@@ -34,15 +34,15 @@ const AdminSignup = () => {
         name,
         email,
         password,
-        role: 'admin'
-      });
+        role: 'admin',
+      })
 
-      setMessage('Admin registered successfully!');
-      setFormData({ name: '', email: '', password: '', confirmPassword: '' });
+      setMessage('Admin registered successfully!')
+      setFormData({ name: '', email: '', password: '', confirmPassword: '' })
     } catch (err) {
-      setMessage(err.response?.data?.message || 'Something went wrong');
+      setMessage(err.response?.data?.message || 'Something went wrong')
     }
-  };
+  }
 
   return (
     <div className="admin-signup-container">
@@ -80,7 +80,7 @@ const AdminSignup = () => {
         <button type="submit">Sign Up</button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default AdminSignup;
+export default AdminSignup
