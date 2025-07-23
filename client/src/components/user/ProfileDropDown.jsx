@@ -1,16 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/components/user/ProfileDropDown.css'
-
-const ProfileDropdown = ({ user }) => {
+import { FaUser } from 'react-icons/fa'
+const ProfileDropdown = ({ handleLogout }) => {
   return (
     <div className="profile-dropdown">
       <div className="profile-trigger">
-        <img
-          src={user?.profilePic || '/default-avatar.png'}
-          alt="Profile"
-          className="profile-pic"
-        />
+        <FaUser size={30} />
       </div>
       <ul className="dropdown-menu">
         <li>
@@ -23,9 +19,7 @@ const ProfileDropdown = ({ user }) => {
           <Link to="/settings">Settings</Link>
         </li>
         <li>
-          <button onClick={() => console.log('Logout logic here')}>
-            Logout
-          </button>
+          <button onClick={() => handleLogout()}>Logout</button>
         </li>
       </ul>
     </div>

@@ -6,10 +6,8 @@ import Signup from './Signup'
 import { useUser } from '../../contexts/UserContext'
 import { useCart } from '../../contexts/CartContext'
 import { useSearch } from '../../contexts/SearchContext'
-
-import cartIcon from '../../assets/cart-icon.jpeg'
+import { BsBagHeart, BsSearch } from 'react-icons/bs'
 import logoImage from '../../assets/ecommerce.jpeg'
-import searchIcon from '../../assets/search-icon.jpeg'
 import ProfileDropdown from './ProfileDropDown'
 
 import '../../styles/components/user/Header.css'
@@ -57,13 +55,13 @@ export default function Header() {
           className="search-button search-button-new"
           aria-label="Search Button"
         >
-          <img src={searchIcon} alt="Search" className="search-icon" />
+          <BsSearch size={20} />
         </button>
       </form>
 
       <div className="nav-right">
         <Link to="/cart" className="cart-link" aria-label="Cart">
-          <img src={cartIcon} alt="Cart Icon" className="cart-icon-img" />
+          <BsBagHeart size={30} />
           {totalQuantity > 0 && (
             <span className="cart-count">{totalQuantity}</span>
           )}
@@ -71,13 +69,7 @@ export default function Header() {
 
         {user ? (
           <>
-            <ProfileDropdown user={logoImage} />
-            <span className="greeting">
-              {user.name.split(' ')[0] || 'User'}
-            </span>
-            <button className="logout-btn" onClick={handleLogout}>
-              Logout
-            </button>
+            <ProfileDropdown user={logoImage} handleLogout={handleLogout} />
           </>
         ) : (
           <>

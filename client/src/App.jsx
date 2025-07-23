@@ -16,6 +16,7 @@ import {
   Profile,
   ForgotPassword,
   ChangePassword,
+  Settings,
 } from './pages/user'
 
 // imports related to admin
@@ -31,6 +32,7 @@ import {
   AdminUser,
   AdminOrders,
 } from './pages/admin'
+import { Spinner } from './components/user'
 
 function App() {
   return (
@@ -50,6 +52,8 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/test" element={<Spinner />} />
           </Route>
 
           {/* ADMIN ROUTES */}

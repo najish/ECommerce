@@ -1,22 +1,13 @@
 require('dotenv').config();
-const path = require('path');
-const express = require('express')
+const {express, path, morgan, cors, bodyParser} = require('./utils/packages')
 const app = express()
 const port = process.env.PORT || 5000
-const morgan = require('morgan')
-const cors = require('cors')
-const bodyParser = require('body-parser')
 const sequelize = require('./utils/database')
 
 
-const authRoutes = require('./routes/authRoutes')
-const userRoutes = require('./routes/userRoutes')
-const productRoutes = require('./routes/productRoutes')
-const categoryRoutes = require('./routes/categoryRoutes')
-const orderRoutes = require('./routes/orderRoutes')
-const orderItemsRoutes = require('./routes/orderItemRoutes')
-const cartRoutes = require('./routes/CartRoutes')
-const cartItemsRoutes = require('./routes/cartItemRoutes')
+const routes = require('./routes')
+
+
 const testRoutes = require('./routes/testRoutes')
 const placeOrderRoutes = require('./routes/placeOrderRoutes')
 
@@ -33,14 +24,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to the E-Commerce API')
 })
 
-app.use('/api/auth', authRoutes)
-app.use('/api/products', productRoutes)
-app.use('/api/orders', orderRoutes)
-app.use('/api/orderItems', orderItemsRoutes)
-app.use('/api/categories', categoryRoutes)
-app.use('/api/cart', cartRoutes)
-app.use('/api/cartItems', cartItemsRoutes)
-app.use('/api/users', userRoutes)
+app.use('/api',routes)
 app.use('/api/test', testRoutes)
 app.use('/api/placeOrder', placeOrderRoutes)
 

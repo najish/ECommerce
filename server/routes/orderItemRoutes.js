@@ -4,13 +4,13 @@ const validate = require('../middlewares/validateMiddleware')
 const { createOrderItemSchema,
   updateOrderItemSchema } = require('../validations/orderItemValidation')
 
-const { createOrderItem, getOrderItems, getOrderItemById, updateOrderItem, deleteOrderItem } = require('../controllers/orderItemController')
+const { orderItemController} = require('../controllers')
 
-router.post('/', validate(createOrderItemSchema), createOrderItem)
-router.get('/', getOrderItems)
-router.get('/:id', getOrderItemById)
-router.put('/:id', validate(updateOrderItemSchema), updateOrderItem)
-router.delete('/:id', deleteOrderItem)
+router.post('/', validate(createOrderItemSchema), orderItemController.createOrderItem)
+router.get('/', orderItemController.getOrderItems)
+router.get('/:id', orderItemController.getOrderItemById)
+router.put('/:id', validate(updateOrderItemSchema), orderItemController.updateOrderItem)
+router.delete('/:id', orderItemController.deleteOrderItem)
 
 
 module.exports = router

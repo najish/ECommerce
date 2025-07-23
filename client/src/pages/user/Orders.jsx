@@ -10,7 +10,7 @@ const Orders = () => {
     const fetchOrders = async () => {
       try {
         const token = localStorage.getItem('token') // Or useContext(AuthContext)
-        const res = await axios.get('/api/orders', {
+        const res = await axios.get('http://localhost:5000/api/orders', {
           headers: { Authorization: `Bearer ${token}` },
         })
         setOrders(res.data)
@@ -41,20 +41,22 @@ const Orders = () => {
             <span>{new Date(order.createdAt).toLocaleDateString()}</span>
           </div>
           <div className="order-status">Status: {order.status}</div>
-          <div className="order-total">
-            Total: ₹{order.totalAmount.toFixed(2)}
-          </div>
+          <div className="order-total">Total: ₹{order.totalAmount}</div>
           <div className="order-items">
-            {order.items.map((item) => (
-              <div className="order-item" key={item.id}>
-                <img src={item.image} alt={item.name} />
-                <div>
-                  <div>{item.name}</div>
-                  <div>Qty: {item.quantity}</div>
-                  <div>Price: ₹{item.price}</div>
+            {order.items !== undefined && order.items.length > 0 ? (
+              order.items.map((item) => (
+                <div className="order-item" key={item.id}>
+                  <img src={item.image} alt={item.name} />
+                  <div>
+                    <div>{item.name}</div>
+                    <div>Qty: {item.quantity}</div>
+                    <div>Price: ₹{item.price}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       ))}

@@ -1,21 +1,17 @@
 const router = require('express').Router();
 const {
-  getProducts,
-  getProductById,
-  createProduct,
-  updateProduct,
-  deleteProduct
-} = require('../controllers/productController');
+  productController
+} = require('../controllers');
 
 const upload = require('../middlewares/upload')
 
 const validate = require('../middlewares/validateMiddleware');
 const { createProductSchema, updateProductSchema } = require('../validations/productValidation');
 
-router.get('/', getProducts);
-router.post('/',upload.single('imageUrl'), validate(createProductSchema), createProduct);
-router.get('/:id', getProductById);
-router.put('/:id', validate(updateProductSchema), updateProduct);
-router.delete('/:id', deleteProduct);
+router.get('/', productController.getProducts);
+router.post('/',upload.single('imageUrl'), validate(createProductSchema), productController.createProduct);
+router.get('/:id', productController.getProductById);
+router.put('/:id', validate(updateProductSchema), productController.updateProduct);
+router.delete('/:id', productController.deleteProduct);
 
 module.exports = router;

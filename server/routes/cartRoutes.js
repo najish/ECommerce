@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const {createCart, getCartById, getCarts, updateCart, deleteCart} = require('../controllers/cartController');
+const {cartController} = require('../controllers');
 const validate = require('../middlewares/validateMiddleware');
 const {createCartSchema, updateCartSchema} = require('../validations/cartValidation');
 
-router.post('/', validate(createCartSchema), createCart);
-router.get('/', getCarts);
-router.get('/:id', getCartById);
-router.put('/:id', validate(updateCartSchema), updateCart);
-router.delete('/:id', deleteCart);
+router.post('/', validate(createCartSchema), cartController.createCart);
+router.get('/', cartController.getCarts);
+router.get('/:id', cartController.getCartById);
+router.put('/:id', validate(updateCartSchema), cartController.updateCart);
+router.delete('/:id',cartController.deleteCart);
 
 module.exports = router;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../../styles/pages/user/Profile.css'
-
+import { FaUser } from 'react-icons/fa'
 function Profile() {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -31,11 +31,7 @@ function Profile() {
     <div className="profile-wrapper">
       <h2>Your Profile</h2>
       <div className="profile-card">
-        <img
-          src={user.profilePic || '/default-avatar.png'}
-          alt="User"
-          className="profile-image"
-        />
+        <FaUser size={100} />
         <div className="profile-info">
           <p>
             <strong>Name:</strong> {user.name}

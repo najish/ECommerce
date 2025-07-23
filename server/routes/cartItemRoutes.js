@@ -1,16 +1,13 @@
 const router = require('express').Router();
-const {createCartItem,
-  getCartItems,
-  getCartItemById,
-  updateCartItem,
-  deleteCartItem} = require('../controllers/cartItemController');
+const {
+  cartItemController} = require('../controllers');
 const validate = require('../middlewares/validateMiddleware');
-const {createCartItemSchema, updateCartItemSchema} = require('../validations/cartItemValidation');
+const {cartItemValidation} = require('../validations');
 
-router.post('/', validate(createCartItemSchema), createCartItem);
-router.get('/', getCartItems);
-router.get('/:id', getCartItemById);
-router.put('/:id', validate(updateCartItemSchema), updateCartItem);
-router.delete('/:id', deleteCartItem);
+router.post('/', validate(cartItemValidation.createCartItemSchema), cartItemController.createCartItem);
+router.get('/', cartItemController.getCartItems);
+router.get('/:id', cartItemController.getCartItemById);
+router.put('/:id', validate(cartItemValidation.updateCartItemSchema), cartItemController.updateCartItem);
+router.delete('/:id', cartItemController.deleteCartItem);
 
 module.exports = router;

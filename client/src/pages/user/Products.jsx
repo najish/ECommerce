@@ -3,6 +3,7 @@ import { ProductCard } from '../../components/user'
 import '../../styles/pages/user/Products.css'
 import { useSearch } from '../../contexts/SearchContext'
 import axios from 'axios'
+import { Spinner } from '../../components/user'
 
 const Products = () => {
   const [products, setProducts] = useState([])
@@ -60,7 +61,7 @@ const Products = () => {
   const goToNext = () =>
     setCurrentPage((prev) => Math.min(prev + 1, totalPages))
 
-  if (loading) return <p className="loading-text">Loading products...</p>
+  if (loading) return <Spinner />
   if (error) return <p style={{ color: 'red' }}>{error}</p>
 
   return (
