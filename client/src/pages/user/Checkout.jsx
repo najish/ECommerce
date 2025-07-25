@@ -4,17 +4,21 @@ import '../../styles/pages/user/Checkout.css'
 import axios from 'axios'
 import { useUser } from '../../contexts/UserContext'
 import { useNavigate } from 'react-router-dom'
+import { AddressList } from '../../components/user'
+import UPIQRCode from '../../components/user/UPIQRCode'
 
 const Checkout = () => {
-  const { cartItems, totalQuantity, clearCart } = useCart()
+  const { cartItems, clearCart } = useCart()
   const { user } = useUser()
+  const navigate = useNavigate()
 
-  const [address, setAddress] = useState('')
+  const [addresses, setAddresses] = useState([])
+  const [selectedAddressId, setSelectedAddressId] = useState('')
   const [paymentMethod, setPaymentMethod] = useState('cod')
   const [message, setMessage] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showSuccess, setShowSuccess] = useState(false)
 
-  const navigate = useNavigate()
   const totalAmount = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -25,7 +29,25 @@ const Checkout = () => {
     if (cartItems.length === 0) {
       setMessage('❌ Your cart is empty.')
     }
-  }, [])
+
+    if (user) {
+      fetchAddresses()
+    }
+  }, [user])
+
+  const fetchAddresses = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/api/address/${user.id}`
+      )
+      setAddresses(res.data)
+      if (res.data.length > 0) {
+        setSelectedAddressId(res.data[0].id)
+      }
+    } catch (err) {
+      console.error('Failed to fetch addresses:', err)
+    }
+  }
 
   const handleCheckout = async () => {
     if (!user) {
@@ -33,8 +55,8 @@ const Checkout = () => {
       return
     }
 
-    if (!address.trim()) {
-      setMessage('❌ Shipping address is required.')
+    if (!selectedAddressId) {
+      setMessage('❌ Please select a shipping address.')
       return
     }
 
@@ -42,10 +64,10 @@ const Checkout = () => {
       setIsSubmitting(true)
 
       const orderData = {
-        address,
+        addressId: selectedAddressId,
         paymentMethod,
         items: cartItems,
-        user,
+        userId: user.id,
         totalAmount,
       }
 
@@ -54,11 +76,15 @@ const Checkout = () => {
         orderData
       )
 
-      setMessage('✅ Order placed successfully!')
       clearCart()
-      setAddress('')
+      setSelectedAddressId('')
       setPaymentMethod('cod')
-      navigate('/')
+
+      setShowSuccess(true)
+      setTimeout(() => {
+        setShowSuccess(false)
+        navigate('/')
+      }, 3000)
     } catch (err) {
       console.error(err)
       setMessage('❌ Something went wrong. Try again.')
@@ -71,58 +97,61 @@ const Checkout = () => {
     <div className="checkout-container">
       <h2>🛒 Checkout</h2>
 
-      {!user && (
-        <div>
-          <li>
-            <strong>Please Login ❤️</strong>
-          </li>
-        </div>
+      {!user ? (
+        <p>
+          <strong>Please Login ❤️</strong>
+        </p>
+      ) : (
+        <>
+          <AddressList userId={user.id} />
+
+          <div className="checkout-form">
+            <label htmlFor="paymentMethod">Payment Method:</label>
+            <select
+              id="paymentMethod"
+              value={paymentMethod}
+              onChange={(e) => setPaymentMethod(e.target.value)}
+            >
+              <option value="cod">Cash on Delivery</option>
+              <option value="card">Card (Demo)</option>
+              <option value="upi">UPI</option>
+              <option value="qr">QR Code</option>
+            </select>
+
+            <button
+              onClick={handleCheckout}
+              disabled={
+                !selectedAddressId || isSubmitting || cartItems.length === 0
+              }
+            >
+              🧾 Place Order
+            </button>
+
+            {message && (
+              <p className={message.startsWith('✅') ? 'success' : 'error'}>
+                {message}
+              </p>
+            )}
+          </div>
+
+          {paymentMethod === 'qr' && (
+            <div className="qr-code-section">
+              <UPIQRCode
+                upiId="zafer@upi"
+                payeeName="Zafer Eqbal"
+                amount={totalAmount.toFixed(2)}
+              />
+            </div>
+          )}
+        </>
       )}
 
-      <div className="checkout-form">
-        <label htmlFor="address">Shipping Address:</label>
-        <textarea
-          id="address"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          placeholder="Enter your full shipping address"
-        />
-
-        <label htmlFor="paymentMethod">Payment Method:</label>
-        <select
-          id="paymentMethod"
-          value={paymentMethod}
-          onChange={(e) => setPaymentMethod(e.target.value)}
-        >
-          <option value="cod">Cash on Delivery</option>
-          <option value="card">Card (Demo)</option>
-          <option value="upi">UPI</option>
-          <option value="qr">QR Code</option>
-        </select>
-
-        <button
-          onClick={handleCheckout}
-          disabled={
-            !user || !address.trim() || isSubmitting || cartItems.length === 0
-          }
-        >
-          🧾 Place Order
-        </button>
-
-        {message && (
-          <p className={message.startsWith('✅') ? 'success' : 'error'}>
-            {message}
-          </p>
-        )}
-      </div>
-
-      {paymentMethod === 'qr' && (
-        <div className="qr-code-section">
-          <UPIQRCode
-            upiId="zafer@upi"
-            payeeName="Zafer Eqbal"
-            amount={totalAmount.toFixed(2)}
-          />
+      {showSuccess && (
+        <div className="order-success-overlay">
+          <div className="order-success-box">
+            <h3>✅ Order Placed Successfully!</h3>
+            <p>Redirecting you to the home page...</p>
+          </div>
         </div>
       )}
     </div>

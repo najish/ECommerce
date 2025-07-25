@@ -20,10 +20,13 @@ const forgotPasswordSchema = Joi.object({
 });
 
 
+
+
 const loginSchema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().min(6).required(),
 });
+
 
 
 const signUpSchema = Joi.object({
@@ -36,10 +39,16 @@ const signUpSchema = Joi.object({
   role: Joi.string().valid('user', 'admin').optional()
 });
 
+const profileImageSchema = Joi.object({
+  userId: Joi.number().integer().required(),
+});
+
+
 
 module.exports = {
   changePasswordSchema,
   forgotPasswordSchema,
   loginSchema, 
-  signUpSchema
+  signUpSchema,
+  profileImageSchema
 };

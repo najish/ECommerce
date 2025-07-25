@@ -14,7 +14,13 @@ const updateUserSchema = Joi.object({
   role: Joi.string().valid('user', 'admin')
 });
 
+const profileImageSchema = Joi.object({
+  userId: Joi.number().integer().required(),
+});
+
+
 module.exports = {
   createUserSchema,
-  updateUserSchema
+  updateUserSchema,
+  profileImageSchema
 };

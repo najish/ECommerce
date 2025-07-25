@@ -33,7 +33,8 @@ const login = async (req, res) => {
     const data = {
       id: user.id,
       name: user.name,
-      email: user.email
+      email: user.email,
+      imageUrl: user.imageUrl
     };
 
     res.status(200).json({ message: 'Login successful', token, data });
@@ -140,7 +141,7 @@ const verifyOtp = async (req, res) => {
 
 const changePassword = async (req, res) => {
   try {
-
+    const {password, confirmPassword, token} = req.body
     if (password !== confirmPassword) {
       return res.status(400).json({ message: 'Passwords do not match' });
     }
@@ -172,10 +173,46 @@ const changePassword = async (req, res) => {
 };
 
 
+const uploadProfileImage = async (req, res) => {
+  try {
+    // Multer already populated this
+    if (!req.file) {
+      return res.status(400).json({ error: 'Image file is required' });
+    }
+
+    const { userId } = req.body; // Already validated by middleware
+    const imageUrl = `uploads/profile/${req.file.filename}`;
+
+    // Check if user exists
+    const user = await User.findByPk(userId);
+    if (!user) {
+      return res.status(404).json({ error: 'Invalid User' });
+    }
+
+    // Update imageUrl in DB
+    await user.update({ imageUrl });
+
+    res.status(200).json({
+      message: 'Profile image uploaded successfully',
+      data: {
+        userId,
+        imageUrl,
+      },
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+
+
 module.exports = {
   login,
   signup,
   forgotPassword,
   changePassword,
   verifyOtp,
+  uploadProfileImage
 };

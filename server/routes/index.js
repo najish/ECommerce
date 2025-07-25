@@ -14,7 +14,7 @@ const cartItemsRoutes = require('./cartItemRoutes')
 const authRoutes = require('./authRoutes')
 const testRoutes = require('./testRoutes')
 const placeOrderRoutes = require('./placeOrderRoutes')
-
+const addressRoutes = require('./addressRoutes')
 
 // routes will be here 
 
@@ -28,5 +28,6 @@ router.use('/cartItems', cartItemsRoutes)
 router.use('/users', userRoutes)
 router.use('/placeOrder', placeOrderRoutes)
 router.use('/test', testRoutes)
+router.use('/address', addressRoutes)
 
 module.exports = router

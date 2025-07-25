@@ -25,8 +25,6 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api',routes)
-app.use('/api/test', testRoutes)
-app.use('/api/placeOrder', placeOrderRoutes)
 
 
 app.listen(port, () => {

@@ -46,6 +46,7 @@ const Login = ({ closeModal }) => {
           id: data.id,
           email: data.email,
           name: data.name,
+          imageUrl: data.imageUrl,
         }
         setUser(user)
         setToken(token)

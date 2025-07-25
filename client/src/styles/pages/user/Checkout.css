@@ -1,104 +1,91 @@
 .checkout-container {
-  max-width: 600px;
+  max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-}
-
-.checkout-container h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  color: #333;
+  position: relative;
 }
 
 .checkout-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .checkout-form label {
-  font-weight: 600;
+  display: block;
   margin-bottom: 0.5rem;
-  color: #333;
+  font-weight: bold;
 }
 
-.checkout-form textarea,
-.checkout-form select {
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
+.checkout-form select,
+.checkout-form button {
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 1rem;
+  width: 100%;
   border-radius: 8px;
   border: 1px solid #ccc;
-  outline: none;
-  transition: border 0.3s;
-  background-color: #fff;
-}
-
-.checkout-form textarea:focus,
-.checkout-form select:focus {
-  border-color: #1e90ff;
-}
-
-.checkout-form select {
-  height: 45px;
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23666' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 12px 8px;
 }
 
 .checkout-form button {
-  background-color: #1e90ff;
+  background-color: #4caf50;
   color: white;
-  padding: 0.9rem 1.2rem;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 .checkout-form button:hover {
-  background-color: #006fd6;
+  background-color: #45a049;
 }
 
 .success {
   color: green;
-  font-weight: 600;
-  margin-top: 1rem;
+  font-weight: bold;
 }
 
 .error {
   color: red;
-  font-weight: 600;
-  margin-top: 1rem;
-}
-
-@media (max-width: 600px) {
-  .checkout-container {
-    margin: 1rem;
-    padding: 1rem;
-  }
-
-  .checkout-form {
-    gap: 1rem;
-  }
+  font-weight: bold;
 }
 
 .qr-code-section {
   margin-top: 2rem;
-  padding: 1.5rem;
-  background: #f5faff;
-  border: 1px solid #cce5ff;
-  border-radius: 10px;
   text-align: center;
 }
 
-.qr-code-section h2 {
-  margin-bottom: 1rem;
+/* ✅ Order Success Overlay */
+.order-success-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.order-success-box {
+  background: white;
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  animation: fadeInScale 0.4s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
