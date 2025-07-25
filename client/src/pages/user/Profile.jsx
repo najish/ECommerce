@@ -3,7 +3,7 @@ import axios from 'axios'
 import '../../styles/pages/user/Profile.css'
 import { FaUser } from 'react-icons/fa'
 import { FaPenToSquare } from 'react-icons/fa6'
-import { Address } from '../../components/user'
+import { Address, AddressList } from '../../components/user'
 import { IoIosArrowDropdownCircle } from 'react-icons/io'
 import Payment from '../../components/user/Payment'
 
@@ -121,7 +121,7 @@ function Profile() {
         <span onClick={handleDropDown}>
           <strong>Addresses: </strong> <IoIosArrowDropdownCircle />
         </span>
-        {dropDown ? <Address userId={user.id} /> : <></>}
+        {dropDown ? <AddressList userId={user.id} /> : <></>}
       </div>
     </div>
   )
