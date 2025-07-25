@@ -6,8 +6,10 @@
 }
 
 .profile-wrapper h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.8rem;
+  color: #333;
 }
 
 .profile-card {
@@ -15,22 +17,35 @@
   gap: 2rem;
   align-items: center;
   padding: 1.5rem;
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.profile-card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
 .profile-image {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid #ddd;
+  border: 3px solid #ccc;
+  transition: 0.3s;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
 }
 
 .placeholder-image {
-  color: #999;
+  color: #ccc;
+  width: 110px;
+  height: 110px;
 }
 
 .edit-profile-icon {
@@ -38,13 +53,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 }
 
 .upload-label {
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -8px;
+  right: -8px;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 50%;
@@ -54,35 +68,27 @@
 }
 
 .upload-label:hover {
-  background-color: #eee;
+  background-color: #f0f0f0;
 }
 
 .edit-icon {
-  color: #555;
+  color: #666;
 }
 
 .profile-info p {
-  margin: 0.5rem 0;
+  margin: 0.6rem 0;
   font-size: 1rem;
+  color: #444;
 }
 
 .profile-info strong {
-  color: #333;
+  color: #111;
 }
 
-div.address-container {
-  border: 2px solid red;
-  min-height: 150px;
-}
-
-div.payment-container {
-  border: 2px solid green;
-  min-height: 150px;
-}
 .upload-message {
-  margin: 10px 0;
-  padding: 10px 15px;
-  border-radius: 8px;
+  margin: 15px 0;
+  padding: 12px 16px;
+  border-radius: 10px;
   font-size: 1rem;
   font-weight: 500;
   width: fit-content;
@@ -110,4 +116,33 @@ div.payment-container {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.address-container {
+  background: #f8f9fa;
+  border: 2px dashed #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  transition: background 0.3s ease-in-out;
+}
+
+.address-container:hover {
+  background: #fefefe;
+}
+
+.address-container span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #444;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.payment-container {
+  border: 2px solid green;
+  min-height: 150px;
 }
