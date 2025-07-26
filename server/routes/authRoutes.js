@@ -16,4 +16,6 @@ router.post('/upload-profile',
     authController.uploadProfileImage
 )
 
+router.post('/google', authController.googleSignIn)
+
 module.exports = router;
