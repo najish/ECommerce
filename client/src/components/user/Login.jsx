@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useUser } from '../../contexts/UserContext'
-
+import {GoogleLogin} from '../user'
 const Login = ({ closeModal }) => {
   const { setUser, setToken } = useUser()
   const [form, setForm] = useState({
@@ -114,6 +114,7 @@ const Login = ({ closeModal }) => {
         <button type="submit" disabled={loading}>
           {loading ? 'Logging in...' : 'Login'}
         </button>
+        <GoogleLogin closeModal={closeModal}/>
       </form>
     </div>
   )

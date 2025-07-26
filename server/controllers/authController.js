@@ -4,6 +4,9 @@ const Token = db.Token;
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const transporter = require('../utils/nodeMailer');
+const { OAuth2Client } = require('google-auth-library');
+
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_key';
 const JWT_RESET_PASSWORD_SECRET = process.env.JWT_RESET_PASSWORD_SECRET || 'your_reset_secret_key';
@@ -208,11 +211,47 @@ const uploadProfileImage = async (req, res) => {
 
 
 
+const googleSignIn = async (req, res) => {
+  const { token } = req.body;
+
+  try {
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+    const { sub: googleId, email, name, picture: imageUrl } = payload;
+
+    // Check if user exists
+    let user = await User.findOne({ where: { email } });
+
+    // If not, create a new user
+    if (!user) {
+      user = await User.create({
+        googleId,  // You must have added this in migration
+        email,
+        name,
+        imageUrl,
+        password: '', // Optional, or set a random string
+        role: 'user', // Optional
+      });
+
+    }
+
+    return res.status(200).json({ message: 'Success', user });
+  } catch (error) {
+    console.error('Google Sign-In Error:', error);
+    return res.status(400).json({ message: 'Invalid token' });
+  }
+};
+
 module.exports = {
   login,
   signup,
   forgotPassword,
   changePassword,
   verifyOtp,
-  uploadProfileImage
+  uploadProfileImage,
+  googleSignIn
 };

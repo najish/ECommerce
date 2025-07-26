@@ -1,18 +1,9 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here if needed
-      // e.g., User.hasMany(models.Order)
       User.hasMany(models.Order, { foreignKey: 'userId' });
       User.hasOne(models.Cart, { foreignKey: 'userId' });
       User.hasMany(models.Token, {
@@ -22,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Addresses, {
         foreignKey: 'userId',
         as: 'addresses',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
       });
     }
   }
@@ -44,14 +35,18 @@ module.exports = (sequelize, DataTypes) => {
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true // ✅ allow null if using Google
     },
     role: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 'user' // Optional default
+      defaultValue: 'user'
     },
     imageUrl: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    googleId: {  // ✅ NEW FIELD
       type: DataTypes.STRING,
       allowNull: true
     }
@@ -59,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
     tableName: 'users',
-    timestamps: true // Adds createdAt and updatedAt
+    timestamps: true
   });
 
   return User;
