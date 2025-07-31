@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../../styles/pages/admin/AdminCategory.css'
+import {Link} from 'react-router-dom'
 
 function AdminCategory() {
   const [categories, setCategories] = useState([])
@@ -35,7 +36,11 @@ function AdminCategory() {
 
   return (
     <div className="admin-category-container">
+      <div>
+
       <h2 className="admin-category-title">Manage Categories</h2>
+      <Link to='/add-category'>Add Category</Link>
+      </div>
 
       {error && <p className="category-error">{error}</p>}
       {loading ? (
