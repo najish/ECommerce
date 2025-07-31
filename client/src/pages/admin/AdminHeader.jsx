@@ -6,7 +6,7 @@ const AdminHeader = () => {
   return (
     <header className="admin-header">
       <Link to="/admin" className="admin-header-title">
-        Admin Dashboard
+        Dashboard
       </Link>
     </header>
   )
