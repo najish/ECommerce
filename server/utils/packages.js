@@ -5,9 +5,9 @@ const morgan = require('morgan')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-
-
+const session = require('express-session')
+const passport = require('passport')
 
 module.exports = {
-    path, fs, express, morgan, cors, bodyParser, mongoose
+    path, fs, express, morgan, cors, bodyParser, mongoose,session,passport
 }
