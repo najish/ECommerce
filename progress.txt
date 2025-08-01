@@ -46,3 +46,4 @@ server
 22. adding bots
 23. adding machine learning models
 24. learning more about build tools and how it works
+25. learning different types of headers, caching, sessions, tokens, localstorage, sessionbased storage
