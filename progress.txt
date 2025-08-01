@@ -19,3 +19,26 @@ server
 5. validation for all the models and others things
 6. dotenv setup for the server
 
+
+==========================
+
+1. update the model 
+2. update the css 
+3. seed the models with huge data
+4. docker setup
+5. github actions for different environment
+6. different environment setup
+7. logging setup
+8. redis setup
+9. mongodb connection and setup
+10. autocanon
+11. differrent types of testing
+12. adding coverage for both backend and frontend 
+13. adding validation everywhere where it is required
+14. adding different types of authentication and authorization
+15. adding protected routes and roles based access 
+16. different types of attacks (sql injection, xss attacks) to prevent the attacks 
+17. nginx
+18. rate limiters
+19. sql optimization (n + 1) and all other related issues
+
