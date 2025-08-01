@@ -15,10 +15,7 @@ const placeOrderRoutes = require('./routes/placeOrderRoutes');
 // 🔧 Middleware
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-app.use(cors({
-  origin: "*",
-  credentials: true
-}));
+app.use(cors())
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
