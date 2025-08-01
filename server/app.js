@@ -12,6 +12,7 @@ const connectDB = require('./utils/mongoose')
 const routes = require('./routes');
 const testRoutes = require('./routes/testRoutes');
 const placeOrderRoutes = require('./routes/placeOrderRoutes');
+const {logger} = require('./utils')
 
 connectDB()
 
@@ -81,4 +82,5 @@ app.use('/api/order', placeOrderRoutes);
 // 🚀 Start Server
 app.listen(port, () => {
   console.log(`Server is running on port ${port} ✅`);
+  logger.info(`server started at : ${port}`)
 });
