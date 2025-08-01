@@ -41,4 +41,8 @@ server
 17. nginx
 18. rate limiters
 19. sql optimization (n + 1) and all other related issues
-
+20. worker thread in nodejs (express app) to enable more feature
+21. ssl certificates 
+22. adding bots
+23. adding machine learning models
+24. learning more about build tools and how it works
