@@ -1,13 +1,29 @@
 const { Product } = require('../models');
+const {redisClient, logger} = require('../utils')
 
 const getProducts = async (req, res) => {
   try {
+    const cacheKey = 'products:all';
+
+    // 1️⃣ Check Redis Cache
+    const cachedProducts = await redisClient.get(cacheKey);
+    if (cachedProducts) {
+      logger.info('response from redis')
+      return res.json(JSON.parse(cachedProducts)); // Return cached response
+    }
+
+    // 2️⃣ Fetch from DB if not in cache
     const products = await Product.findAll({ include: 'category' });
+
+    // 3️⃣ Cache the response in Redis for 1 hour (3600 seconds)
+    await redisClient.setEx(cacheKey, 3600, JSON.stringify(products));
+
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+
 
 const getProductById = async (req, res) => {
   try {
