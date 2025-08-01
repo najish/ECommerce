@@ -8,9 +8,12 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 const sequelize = require('./utils/database');
+const connectDB = require('./utils/mongoose')
 const routes = require('./routes');
 const testRoutes = require('./routes/testRoutes');
 const placeOrderRoutes = require('./routes/placeOrderRoutes');
+
+connectDB()
 
 // 🔧 Middleware
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
