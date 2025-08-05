@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-// import all the controllers here 
+// import all the controllers here
 
 const userController = require('./userController')
 const productController = require('./productController')
@@ -12,7 +12,14 @@ const cartItemController = require('./cartItemController')
 const authController = require('./authController')
 const addressController = require('./addressController')
 
-
-
-
-module.exports = {userController, productController, categoryController, orderController, orderItemController, cartController, cartItemController, authController, addressController}
+module.exports = {
+  userController,
+  productController,
+  categoryController,
+  orderController,
+  orderItemController,
+  cartController,
+  cartItemController,
+  authController,
+  addressController,
+}

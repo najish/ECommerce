@@ -1,4 +1,4 @@
-const Joi = require('joi');
+const Joi = require('joi')
 
 const addressSchema = Joi.object({
   userId: Joi.number().integer().required(),
@@ -8,11 +8,14 @@ const addressSchema = Joi.object({
   district: Joi.string().required(),
   state: Joi.string().required(),
   country: Joi.string().required(),
-  pincode: Joi.string().required().pattern(/^\d{5,10}$/).messages({
-    'string.pattern.base': 'Pincode must be between 5 and 10 digits.'
-  }),
-});
+  pincode: Joi.string()
+    .required()
+    .pattern(/^\d{5,10}$/)
+    .messages({
+      'string.pattern.base': 'Pincode must be between 5 and 10 digits.',
+    }),
+})
 
 module.exports = {
-  addressSchema
-};
+  addressSchema,
+}

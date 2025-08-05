@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+'use strict'
+const { Model } = require('sequelize')
 
 module.exports = (sequelize, DataTypes) => {
   class Cart extends Model {
@@ -13,34 +11,37 @@ module.exports = (sequelize, DataTypes) => {
       Cart.belongsTo(models.User, {
         foreignKey: 'userId',
         as: 'user',
-        onDelete: 'CASCADE'
-      });
+        onDelete: 'CASCADE',
+      })
 
       // ✅ A cart has many cart items
       Cart.hasMany(models.CartItem, {
         foreignKey: 'cartId',
         as: 'items',
-        onDelete: 'CASCADE'
-      });
+        onDelete: 'CASCADE',
+      })
     }
   }
 
-  Cart.init({
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
+  Cart.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     },
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+    {
+      sequelize,
+      modelName: 'Cart',
+      tableName: 'carts',
+      timestamps: true,
     }
-  }, {
-    sequelize,
-    modelName: 'Cart',
-    tableName: 'carts',
-    timestamps: true
-  });
+  )
 
-  return Cart;
-};
+  return Cart
+}

@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -7,60 +7,60 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'users', // name of the target table (case-sensitive)
-          key: 'id'
+          key: 'id',
         },
         onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
+        onUpdate: 'CASCADE',
       },
       landmark: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: true,
       },
       street: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       city: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       district: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       state: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       country: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       pincode: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-      }
-    });
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+      },
+    })
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Addresses');
-  }
-};
+    await queryInterface.dropTable('Addresses')
+  },
+}

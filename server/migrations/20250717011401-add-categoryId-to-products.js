@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -7,13 +7,13 @@ module.exports = {
       allowNull: false,
       references: {
         model: 'categories',
-        key: 'id'
+        key: 'id',
       },
-      onDelete: 'CASCADE'
-    });
+      onDelete: 'CASCADE',
+    })
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.removeColumn('products', 'categoryId');
-  }
-};
+    await queryInterface.removeColumn('products', 'categoryId')
+  },
+}

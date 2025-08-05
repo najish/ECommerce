@@ -1,16 +1,16 @@
 // validations/cartValidation.js
 
-const Joi = require('joi');
+const Joi = require('joi')
 
 const createCartSchema = Joi.object({
-  userId: Joi.number().integer().required()
-});
+  userId: Joi.number().integer().required(),
+})
 
 const updateCartSchema = Joi.object({
-  userId: Joi.number().integer().optional()
-}).min(1);
+  userId: Joi.number().integer().optional(),
+}).min(1)
 
 module.exports = {
   createCartSchema,
-  updateCartSchema
-};
+  updateCartSchema,
+}

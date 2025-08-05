@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize')
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -9,11 +9,11 @@ module.exports = {
     await queryInterface.addColumn('tokens', 'otp', {
       type: DataTypes.INTEGER,
       allowNull: true, // Set to false if OTP must always exist
-    });
+    })
   },
 
   async down(queryInterface, Sequelize) {
     // Removes the 'otp' column if the migration is rolled back
-    await queryInterface.removeColumn('tokens', 'otp');
-  }
-};
+    await queryInterface.removeColumn('tokens', 'otp')
+  },
+}

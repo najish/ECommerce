@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+'use strict'
+const { Model } = require('sequelize')
 
 module.exports = (sequelize, DataTypes) => {
   class OrderItem extends Model {
@@ -13,47 +11,50 @@ module.exports = (sequelize, DataTypes) => {
       OrderItem.belongsTo(models.Order, {
         foreignKey: 'orderId',
         as: 'order',
-        onDelete: 'CASCADE'
-      });
+        onDelete: 'CASCADE',
+      })
 
       // ✅ Each OrderItem belongs to one Product
       OrderItem.belongsTo(models.Product, {
         foreignKey: 'productId',
         as: 'product',
-        onDelete: 'CASCADE'
-      });
+        onDelete: 'CASCADE',
+      })
     }
   }
 
-  OrderItem.init({
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
+  OrderItem.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      orderId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      productId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 1,
+      },
+      price: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+      },
     },
-    orderId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    productId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    quantity: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 1
-    },
-    price: {
-      type: DataTypes.FLOAT,
-      allowNull: false
+    {
+      sequelize,
+      modelName: 'OrderItem',
+      tableName: 'order_items',
+      timestamps: true,
     }
-  }, {
-    sequelize,
-    modelName: 'OrderItem',
-    tableName: 'order_items',
-    timestamps: true
-  });
+  )
 
-  return OrderItem;
-};
+  return OrderItem
+}

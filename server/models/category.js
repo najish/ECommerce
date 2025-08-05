@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+'use strict'
+const { Model } = require('sequelize')
 
 module.exports = (sequelize, DataTypes) => {
   class Category extends Model {
@@ -13,28 +11,31 @@ module.exports = (sequelize, DataTypes) => {
       Category.hasMany(models.Product, {
         foreignKey: 'categoryId',
         as: 'products',
-        onDelete: 'CASCADE'
-      });
+        onDelete: 'CASCADE',
+      })
     }
   }
 
-  Category.init({
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
+  Category.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+      },
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
+    {
+      sequelize,
+      modelName: 'Category',
+      tableName: 'categories',
+      timestamps: true,
     }
-  }, {
-    sequelize,
-    modelName: 'Category',
-    tableName: 'categories',
-    timestamps: true
-  });
+  )
 
-  return Category;
-};
+  return Category
+}

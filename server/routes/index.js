@@ -3,7 +3,6 @@ const router = express.Router()
 
 // import all the routes here
 
-
 const userRoutes = require('./userRoutes')
 const productRoutes = require('./productRoutes')
 const categoryRoutes = require('./productRoutes')
@@ -16,7 +15,7 @@ const testRoutes = require('./testRoutes')
 const placeOrderRoutes = require('./placeOrderRoutes')
 const addressRoutes = require('./addressRoutes')
 
-// routes will be here 
+// routes will be here
 
 router.use('/auth', authRoutes)
 router.use('/products', productRoutes)
