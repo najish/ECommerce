@@ -10,9 +10,14 @@ const testValidation = require('./testValidation')
 const addressValidation = require('./addressValidation')
 
 module.exports = {
-    userValidation, productValidation,
-    categoryValidation, orderItemValidation,
-    orderValidation, cartItemValidation, 
-    cartValidation, authValidation, 
-    testValidation, addressValidation
+  userValidation,
+  productValidation,
+  categoryValidation,
+  orderItemValidation,
+  orderValidation,
+  cartItemValidation,
+  cartValidation,
+  authValidation,
+  testValidation,
+  addressValidation,
 }

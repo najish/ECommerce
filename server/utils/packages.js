@@ -7,7 +7,17 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const session = require('express-session')
 const passport = require('passport')
+const compression = require('compression')
 
 module.exports = {
-    path, fs, express, morgan, cors, bodyParser, mongoose,session,passport
+  path,
+  fs,
+  express,
+  morgan,
+  cors,
+  bodyParser,
+  mongoose,
+  session,
+  passport,
+  compression,
 }

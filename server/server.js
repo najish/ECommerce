@@ -1,23 +1,21 @@
 // server.js
-const cluster = require('cluster');
-const os = require('os');
+const cluster = require('cluster')
+const os = require('os')
 
-const numCPUs = os.cpus().length;
+const numCPUs = os.cpus().length
 
 if (cluster.isPrimary) {
-  console.log(`👑 Primary ${process.pid} is running`);
-  
-  // Fork workers
+  console.log(`👑 Primary ${process.pid} is running`)
+
   for (let i = 0; i < numCPUs; i++) {
-    cluster.fork();
+    cluster.fork()
   }
 
-  // Log when workers die and restart them
   cluster.on('exit', (worker, code, signal) => {
-    console.log(`❌ Worker ${worker.process.pid} died. Starting a new one...`);
-    cluster.fork();
-  });
+    console.log(`❌ Worker ${worker.process.pid} died. Starting a new one...`)
+    cluster.fork()
+  })
 } else {
-  console.log(`🚀 Worker ${process.pid} started`);
-  require('./app'); // your Express app
+  console.log(`🚀 Worker ${process.pid} started`)
+  require('./app') // Only the worker runs the server
 }

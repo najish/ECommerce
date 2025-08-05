@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+'use strict'
+const { Model } = require('sequelize')
 
 module.exports = (sequelize, DataTypes) => {
   class CartItem extends Model {
@@ -13,43 +11,46 @@ module.exports = (sequelize, DataTypes) => {
       CartItem.belongsTo(models.Cart, {
         foreignKey: 'cartId',
         as: 'cart',
-        onDelete: 'CASCADE'
-      });
+        onDelete: 'CASCADE',
+      })
 
       // ✅ A cart item belongs to a product
       CartItem.belongsTo(models.Product, {
         foreignKey: 'productId',
         as: 'product',
-        onDelete: 'CASCADE'
-      });
+        onDelete: 'CASCADE',
+      })
     }
   }
 
-  CartItem.init({
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
+  CartItem.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      cartId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      productId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 1,
+      },
     },
-    cartId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    productId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    quantity: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 1
+    {
+      sequelize,
+      modelName: 'CartItem',
+      tableName: 'cart_items',
+      timestamps: true,
     }
-  }, {
-    sequelize,
-    modelName: 'CartItem',
-    tableName: 'cart_items',
-    timestamps: true
-  });
+  )
 
-  return CartItem;
-};
+  return CartItem
+}

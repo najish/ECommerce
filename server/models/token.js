@@ -1,5 +1,5 @@
-'use strict';
-const { Model } = require('sequelize');
+'use strict'
+const { Model } = require('sequelize')
 
 module.exports = (sequelize, DataTypes) => {
   class Token extends Model {
@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       Token.belongsTo(models.User, {
         foreignKey: 'userId',
         onDelete: 'CASCADE',
-      });
+      })
     }
   }
 
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       otp: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
       },
       expiresAt: {
         type: DataTypes.DATE,
@@ -35,9 +35,9 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: 'Token',
       tableName: 'tokens', // force lowercase table name
-      timestamps: true,   // includes createdAt and updatedAt
+      timestamps: true, // includes createdAt and updatedAt
     }
-  );
+  )
 
-  return Token;
-};
+  return Token
+}

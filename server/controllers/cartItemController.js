@@ -6,7 +6,7 @@ const createCartItem = async (req, res) => {
     res.status(201).json(cartItem)
   } catch (error) {
     res.status(500).json({ message: 'Error creating cart item', error })
-  } 
+  }
 }
 
 const getCartItems = async (req, res) => {

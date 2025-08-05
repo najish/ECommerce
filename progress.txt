@@ -47,10 +47,29 @@ server
 23. adding machine learning models
 24. learning more about build tools and how it works
 25. learning different types of headers, caching, sessions, tokens, localstorage, sessionbased storage
+26. adding compression like gzip to compress the body size for faster response time
 
 
 
+==================================
 
+
+1. enable https ✅
+2. unit test & coverage ✅
+3. prettier
+4. mongoose implementation
+5. nginx enable website 
+6. enable git and github ✅
+7. use centralized error handling
+8. use cleaning import and export using index.js file
+9. debugging setup for both react and express complete and beautiful setup
+10. install morgan and use morgan for dev
+11. install winston and use it for different env
+12. using yarm as package manager for nodejs ✅
+13. setup redis
+14. setup docker file and complete configuration
+15. Create custom Errror Handler as per the requirement
+16. Async Handler for not writing try and catch multiple times
 
 =======================
 
