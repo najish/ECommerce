@@ -48,3 +48,5 @@ pids
 .next/
 .nuxt/
 out/
+
+mysql_data/

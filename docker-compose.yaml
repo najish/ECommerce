@@ -1,57 +1,52 @@
 services:
-  client:
-    build: ./client
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./client:/app
-      - /app/node_modules
-    environment:
-      - NODE_ENV=development
-    depends_on:
-      - server
-    working_dir: /app
-    command: npm start
-    restart: stop
 
-  server:
-    build: ./server
-    ports:
-      - "5000:5000"
-    volumes:
-      - ./server:/app
-      - /app/node_modules
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    container_name: client
     environment:
-      - NODE_ENV=development
+      - VITE_GOOGLE_CLIENT_ID=376026541893-13jtelvnv3i8qodlnb7m8olhif8l247a.apps.googleusercontent.com
+
+  express:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: server
+    restart: unless-stopped
     depends_on:
       - mysql
       - redis
-    working_dir: /app
-    command: npm run dev
-    restart: stop
+    environment:
+      DB_HOST: mysql
+      DB_USER: user
+      DB_PASSWORD: Zafer1998@
+      DB_NAME: ecommerce
+      REDIS_HOST: redis
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+      - /app/node_modules
 
   mysql:
     image: mysql:5.7
-    ports:
-      - "3306:3306"
+    container_name: mysql
+    restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: mydatabase
+      MYSQL_ROOT_PASSWORD: Zafer1998@
       MYSQL_USER: user
-      MYSQL_PASSWORD: userpassword
+      MYSQL_PASSWORD: Zafer1998@
+      MYSQL_DATABASE: ecommerce
+    ports:
+      - "3307:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
-    restart: stop
+      - ./mysql_data:/var/lib/mysql
 
   redis:
-    image: redis:latest
+    image: redis:alpine
+    container_name: redis
+    restart: unless-stopped
     ports:
       - "6379:6379"
-    volumes:
-      - redis_data:/data
-    restart: stop
-
-
-volumes:
-  mysql_data:
-  redis_data:

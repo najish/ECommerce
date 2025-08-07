@@ -1,22 +1,23 @@
 {
   "development": {
     "username": "user",
-    "password": "rotuserpassword",
-    "database": "mydatabase",
+    "password": "Zafer1998@",
+    "database": "ecommerce",
     "host": "mysql",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": 3307
   },
   "test": {
     "username": "user",
-    "password": "userpassword",
-    "database": "mydatabase",
+    "password": "Zafer1998@",
+    "database": "ecommerce",
     "host": "mysql",
     "dialect": "mysql"
   },
   "production": {
     "username": "user",
-    "password": "userpassword",
-    "database": "mydatabase",
+    "password": "Zafer1998@",
+    "database": "ecommerce",
     "host": "mysql",
     "dialect": "mysql"
   }
