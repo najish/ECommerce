@@ -3,22 +3,21 @@
     "username": "root",
     "password": "Zafer1998@",
     "database": "ecommerce",
-    "host": "localhost",
-    "dialect": "mysql",
-    "port": 3306
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   },
   "test": {
-    "username": "user",
-    "password": "Zafer1998@",
-    "database": "ecommerce",
-    "host": "mysql",
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "user",
-    "password": "Zafer1998@",
-    "database": "ecommerce",
-    "host": "mysql",
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }

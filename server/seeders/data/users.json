@@ -5,9 +5,7 @@
     "password": "$2a$10$abc123snehafakehash",
     "role": "user",
     "googleId": null,
-    "imageUrl": "https://randomuser.me/api/portraits/women/21.jpg",
-    "createdAt": "2025-07-06T08:15:00.000Z",
-    "updatedAt": "2025-07-06T08:15:00.000Z"
+    "imageUrl": "https://randomuser.me/api/portraits/women/21.jpg"
   },
   {
     "name": "Ravi Mehta",
@@ -15,9 +13,7 @@
     "password": "$2a$10$abc123ravifakehash",
     "role": "user",
     "googleId": null,
-    "imageUrl": "https://randomuser.me/api/portraits/men/22.jpg",
-    "createdAt": "2025-07-06T09:45:00.000Z",
-    "updatedAt": "2025-07-06T09:45:00.000Z"
+    "imageUrl": "https://randomuser.me/api/portraits/men/22.jpg"
   },
   {
     "name": "Neha Kapoor",
@@ -25,9 +21,7 @@
     "password": "$2a$10$abc123nehafakehash",
     "role": "admin",
     "googleId": null,
-    "imageUrl": "https://randomuser.me/api/portraits/women/23.jpg",
-    "createdAt": "2025-07-07T11:20:00.000Z",
-    "updatedAt": "2025-07-07T11:20:00.000Z"
+    "imageUrl": "https://randomuser.me/api/portraits/women/23.jpg"
   },
   {
     "name": "Suresh Raina",
@@ -35,9 +29,7 @@
     "password": "$2a$10$abc123sureshfakehash",
     "role": "user",
     "googleId": null,
-    "imageUrl": "https://randomuser.me/api/portraits/men/24.jpg",
-    "createdAt": "2025-07-07T13:10:00.000Z",
-    "updatedAt": "2025-07-07T13:10:00.000Z"
+    "imageUrl": "https://randomuser.me/api/portraits/men/24.jpg"
   },
   {
     "name": "Deepika Nair",
@@ -45,9 +37,7 @@
     "password": "$2a$10$abc123deepikafakehash",
     "role": "user",
     "googleId": null,
-    "imageUrl": "https://randomuser.me/api/portraits/women/25.jpg",
-    "createdAt": "2025-07-08T10:55:00.000Z",
-    "updatedAt": "2025-07-08T10:55:00.000Z"
+    "imageUrl": "https://randomuser.me/api/portraits/women/25.jpg"
   },
   {
     "name": "Arjun Desai",
@@ -55,9 +45,7 @@
     "password": "$2a$10$abc123arjunfakehash",
     "role": "user",
     "googleId": null,
-    "imageUrl": "https://randomuser.me/api/portraits/men/26.jpg",
-    "createdAt": "2025-07-08T12:30:00.000Z",
-    "updatedAt": "2025-07-08T12:30:00.000Z"
+    "imageUrl": "https://randomuser.me/api/portraits/men/26.jpg"
   },
   {
     "name": "Kavita Joshi",
@@ -65,9 +53,7 @@
     "password": "$2a$10$abc123kavitafakehash",
     "role": "user",
     "googleId": null,
-    "imageUrl": "https://randomuser.me/api/portraits/women/27.jpg",
-    "createdAt": "2025-07-09T09:00:00.000Z",
-    "updatedAt": "2025-07-09T09:00:00.000Z"
+    "imageUrl": "https://randomuser.me/api/portraits/women/27.jpg"
   },
   {
     "name": "Nikhil Singh",
@@ -75,9 +61,7 @@
     "password": "$2a$10$abc123nikhilfakehash",
     "role": "admin",
     "googleId": null,
-    "imageUrl": "https://randomuser.me/api/portraits/men/28.jpg",
-    "createdAt": "2025-07-09T10:15:00.000Z",
-    "updatedAt": "2025-07-09T10:15:00.000Z"
+    "imageUrl": "https://randomuser.me/api/portraits/men/28.jpg"
   },
   {
     "name": "Ayesha Khan",
@@ -85,9 +69,7 @@
     "password": "$2a$10$abc123ayeshasfakehash",
     "role": "user",
     "googleId": null,
-    "imageUrl": "https://randomuser.me/api/portraits/women/29.jpg",
-    "createdAt": "2025-07-10T11:40:00.000Z",
-    "updatedAt": "2025-07-10T11:40:00.000Z"
+    "imageUrl": "https://randomuser.me/api/portraits/women/29.jpg"
   },
   {
     "name": "Manoj Bhatia",
@@ -95,8 +77,6 @@
     "password": "$2a$10$abc123manojfakehash",
     "role": "user",
     "googleId": null,
-    "imageUrl": "https://randomuser.me/api/portraits/men/30.jpg",
-    "createdAt": "2025-07-10T13:25:00.000Z",
-    "updatedAt": "2025-07-10T13:25:00.000Z"
+    "imageUrl": "https://randomuser.me/api/portraits/men/30.jpg"
   }
 ]
