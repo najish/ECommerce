@@ -5,11 +5,11 @@
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "start": "node server.js",
-    "dev": "cross-env NODE_ENV=development nodemon --legacy-watch server.js",
-    "int": "cross-env NODE_ENV=integration node server.js",
-    "staging": "cross-env NODE_ENV=staging node server.js",
-    "prod": "cross-env NODE_ENV=production node server.js",
+    "start": "node app.js",
+    "dev": "cross-env NODE_ENV=development nodemon --legacy-watch app.js",
+    "int": "cross-env NODE_ENV=integration node app.js",
+    "staging": "cross-env NODE_ENV=staging node app.js",
+    "prod": "cross-env NODE_ENV=production node app.js",
     "format": "prettier --write ."
   },
   "keywords": [],

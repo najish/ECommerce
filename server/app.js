@@ -66,23 +66,28 @@ passport.use(
   )
 )
 
-console.log("hsif")
-
 passport.serializeUser((user, done) => done(null, user))
 passport.deserializeUser((obj, done) => done(null, obj))
 
 // Auth Routes
-app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }))
+app.get(
+  '/auth/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] })
+)
 app.get(
   '/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
-    res.redirect(process.env.CLIENT_REDIRECT_URL || 'http://localhost:3000/profile')
+    res.redirect(
+      process.env.CLIENT_REDIRECT_URL || 'http://localhost:3000/profile'
+    )
   }
 )
 app.get('/auth/user', (req, res) => res.send(req.user || null))
 app.get('/auth/logout', (req, res) => {
-  req.logout(() => res.redirect(process.env.CLIENT_REDIRECT_URL || 'http://localhost:3000'))
+  req.logout(() =>
+    res.redirect(process.env.CLIENT_REDIRECT_URL || 'http://localhost:3000')
+  )
 })
 
 // API Routes

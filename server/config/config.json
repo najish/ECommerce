@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "user",
+    "username": "root",
     "password": "Zafer1998@",
     "database": "ecommerce",
-    "host": "mysql",
+    "host": "localhost",
     "dialect": "mysql",
     "port": 3306
   },
