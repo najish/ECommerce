@@ -33,7 +33,7 @@ const Checkout = () => {
     if (user) {
       fetchAddresses()
     }
-  }, [user])
+  }, [user, addresses])
 
   const fetchAddresses = async () => {
     try {

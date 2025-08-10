@@ -1,5 +1,57 @@
-const { Order, Product } = require('../models')
+const { Order, Product, User, OrderItem } = require('../models')
 
+const getStatus = async (req, res) => {
+  try {
+    const ORDER_STATUSES = [
+      'pending',
+      'placed',
+      'confirmed',
+      'shipped',
+      'delivered',
+      'cancelled',
+    ]
+
+    const status = Order.rawAttributes.status.values
+
+    res.json(status)
+  } catch (err) {
+    console.log('failed to load the status')
+  }
+}
+
+const getOrderByUserId = async (req, res) => {
+  try {
+    const { id } = req.params
+
+    const user = await User.findByPk(id)
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' })
+    }
+
+    const orders = await Order.findAll({
+      where: { userId: id },
+      include: [
+        {
+          model: OrderItem,
+          as: 'orderItems',
+          include: [
+            {
+              model: Product,
+              as: 'product',
+              attributes: ['id', 'name', 'price', 'description', 'imageUrl'], // select fields you want
+            },
+          ],
+        },
+      ],
+      order: [['createdAt', 'DESC']],
+    })
+
+    return res.status(200).json({ orders })
+  } catch (err) {
+    console.error(err)
+    return res.status(500).json({ message: 'Internal server error' })
+  }
+}
 const createOrder = async (req, res) => {
   try {
     const order = await Order.create(req.body)
@@ -68,4 +120,6 @@ module.exports = {
   getOrderById,
   updateOrder,
   deleteOrder,
+  getOrderByUserId,
+  getStatus,
 }

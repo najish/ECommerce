@@ -1,4 +1,4 @@
 const logger = require('./logger')
-const redisClient = require('./redis')
+const { connectRedis, getRedisClient } = require('./redis')
 
-module.exports = { logger, redisClient }
+module.exports = { logger, connectRedis, getRedisClient }

@@ -1,29 +1,65 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../../styles/pages/user/Orders.css'
+import { OrderItem } from '../../components/user'
+
 const Orders = () => {
   const [orders, setOrders] = useState([])
+  const [statuses, setStatuses] = useState(['All'])
+  const [filteredOrders, setFilteredOrders] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [statusFilter, setStatusFilter] = useState('All')
 
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const token = localStorage.getItem('token') // Or useContext(AuthContext)
-        const res = await axios.get('http://localhost:5000/api/orders', {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        setOrders(res.data)
+        const token = localStorage.getItem('token')
+        const user = JSON.parse(localStorage.getItem('user'))
+
+        const res = await axios.get(
+          `http://localhost:5000/api/orders/${user.id}/products`,
+          { headers: { Authorization: `Bearer ${token}` } }
+        )
+
+        const fetchedOrders = Array.isArray(res.data.orders)
+          ? res.data.orders
+          : []
+
+        setOrders(fetchedOrders)
+        setFilteredOrders(fetchedOrders)
       } catch (err) {
         console.error(err)
         setError('Failed to load orders.')
-      } finally {
-        setLoading(false)
       }
     }
 
-    fetchOrders()
+    const fetchStatuses = async () => {
+      try {
+        const res = await axios.get('http://localhost:5000/api/orders/status')
+        if (Array.isArray(res.data)) {
+          setStatuses(['All', ...res.data])
+        } else {
+          setStatuses(['All'])
+        }
+      } catch (err) {
+        console.error(err)
+        setStatuses(['All'])
+      }
+    }
+
+    Promise.all([fetchOrders(), fetchStatuses()])
+      .then(() => setLoading(false))
+      .catch(() => setLoading(false))
   }, [])
+
+  useEffect(() => {
+    if (statusFilter === 'All') {
+      setFilteredOrders(orders)
+    } else {
+      setFilteredOrders(orders.filter((order) => order.status === statusFilter))
+    }
+  }, [statusFilter, orders])
 
   if (loading)
     return <div className="orders-wrapper">Loading your orders...</div>
@@ -33,32 +69,27 @@ const Orders = () => {
 
   return (
     <div className="orders-wrapper">
-      <h2>Your Orders</h2>
-      {orders.map((order) => (
-        <div className="order-card" key={order.id}>
-          <div className="order-header">
-            <span>Order #{order.id}</span>
-            <span>{new Date(order.createdAt).toLocaleDateString()}</span>
-          </div>
-          <div className="order-status">Status: {order.status}</div>
-          <div className="order-total">Total: ₹{order.totalAmount}</div>
-          <div className="order-items">
-            {order.items !== undefined && order.items.length > 0 ? (
-              order.items.map((item) => (
-                <div className="order-item" key={item.id}>
-                  <img src={item.image} alt={item.name} />
-                  <div>
-                    <div>{item.name}</div>
-                    <div>Qty: {item.quantity}</div>
-                    <div>Price: ₹{item.price}</div>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <></>
-            )}
-          </div>
+      <div className="orders-filter">
+        <h2>Your Orders</h2>
+        <div>
+          <label>
+            <strong>Status</strong>
+          </label>
+          <select
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+          >
+            {statuses.map((s) => (
+              <option key={s} value={s}>
+                {s.charAt(0).toUpperCase() + s.slice(1)}
+              </option>
+            ))}
+          </select>
         </div>
+      </div>
+
+      {filteredOrders.map((order) => (
+        <OrderItem key={order.id} order={order} />
       ))}
     </div>
   )

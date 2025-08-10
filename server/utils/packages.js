@@ -8,6 +8,7 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const passport = require('passport')
 const compression = require('compression')
+const rateLimit = require('express-rate-limit')
 
 module.exports = {
   path,
@@ -20,4 +21,5 @@ module.exports = {
   session,
   passport,
   compression,
+  rateLimit,
 }

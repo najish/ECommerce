@@ -5,6 +5,13 @@ const { testValidationSchema } = require('../validations/testValidation')
 const db = require('../models')
 const Token = db.Token
 
+router.get('/sleep/:delay', (req, res) => {
+  const { delay } = req.params
+  setTimeout(() => {
+    res.status(200).json({ message: 'You have received response !!' })
+  }, delay * 1000)
+})
+
 router.get('/', (req, res) => {
   res.json({ message: 'Test route is working!' })
 })
