@@ -37,6 +37,10 @@
   transition: 0.3s ease;
 }
 
+.add-to-cart-btn:hover {
+  background-color: #4c79a8;
+}
+
 .add-to-cart-btn:disabled {
   background-color: #ccc;
   cursor: not-allowed;

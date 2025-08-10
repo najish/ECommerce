@@ -1,0 +1,73 @@
+.orderItem_container {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  background-color: #fafafa;
+  min-width: inherit;
+}
+
+.orderItem_title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.orderItem_summary {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.orderItem_status {
+  font-weight: 600;
+  color: #007bff;
+}
+
+.orderItem_total {
+  font-weight: 700;
+  color: #28a745;
+}
+
+.orderItem_payment {
+  font-style: italic;
+  color: #6c757d;
+}
+
+.orderItem_itemsTitle {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: #222;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.25rem;
+}
+
+.orderItem_list {
+  list-style-type: disc;
+  padding-left: 1.2rem;
+  color: #444;
+}
+
+.orderItem_listItem {
+  margin-bottom: 0.75rem;
+}
+
+.orderItem_productName {
+  color: #212529;
+}
+
+.orderItem_quantity {
+  font-weight: 600;
+  color: #333;
+}
+
+.orderItem_price {
+  font-weight: 700;
+  color: #dc3545;
+}
+
+.orderItem_description {
+  color: #666;
+  font-size: 0.875rem;
+  font-style: italic;
+}
