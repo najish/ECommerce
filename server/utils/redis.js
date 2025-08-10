@@ -1,18 +1,39 @@
+// redisClient.js
 const redis = require('redis')
 
-const redisClient = redis.createClient({
-  url: process.env.REDIS_URL || 'redis://localhost:6379',
-  legacyMode: true, // for compatibility with connect-redis
-})
+let redisClient
 
-redisClient.connect().catch(console.error)
+async function connectRedis() {
+  if (redisClient) return redisClient // already connected
 
-redisClient.on('connect', () => {
-  console.log('✅ Redis connected')
-})
+  redisClient = redis.createClient({
+    url: process.env.REDIS_URL || 'redis://localhost:6379',
+    legacyMode: true,
+  })
 
-redisClient.on('error', (err) => {
-  console.error('❌ Redis error:', err)
-})
+  redisClient.on('connect', () => {
+    console.log('✅ Redis connected')
+  })
 
-module.exports = redisClient
+  redisClient.on('error', (err) => {
+    console.error('❌ Redis error:', err)
+  })
+
+  try {
+    await redisClient.connect()
+  } catch (error) {
+    console.error('❌ Failed to connect to Redis:', error)
+    throw error
+  }
+
+  return redisClient
+}
+
+function getRedisClient() {
+  if (!redisClient) {
+    throw new Error('Redis client not connected. Call connectRedis() first.')
+  }
+  return redisClient
+}
+
+module.exports = { connectRedis, getRedisClient }

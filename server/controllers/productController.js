@@ -1,10 +1,10 @@
 const { Product } = require('../models')
-const { redisClient, logger } = require('../utils')
+const { getRedisClient, logger } = require('../utils')
 
 const getProducts = async (req, res) => {
   try {
     const cacheKey = 'products:all'
-
+    const redisClient = getRedisClient()
     // 1️⃣ Check Redis Cache
     const cachedProducts = await redisClient.get(cacheKey)
     if (cachedProducts) {
